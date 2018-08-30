@@ -85,6 +85,7 @@ layer <- function(geom = NULL, stat = NULL,
   # the mapping is listed before the data argument; this causes
   # less confusing error messages when layers are accidentally
   # piped into each other
+  mapping <- auto_mapping(data, mapping)
   if (!is.null(mapping)) {
     mapping <- validate_mapping(mapping)
   }

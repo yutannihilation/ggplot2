@@ -80,6 +80,7 @@ Collate:
     'geom-raster.r'
     'annotation-raster.r'
     'annotation.r'
+    'auto-mapping.R'
     'autolayer.r'
     'autoplot.r'
     'axis-secondary.R'

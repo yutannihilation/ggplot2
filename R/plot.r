@@ -81,6 +81,7 @@ ggplot.default <- function(data = NULL, mapping = aes(), ...,
     stop("Mapping should be created with `aes() or `aes_()`.", call. = FALSE)
   }
 
+  mapping <- auto_mapping(data, mapping)
   data <- fortify(data, ...)
 
   p <- structure(list(
