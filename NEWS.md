@@ -1,11 +1,30 @@
 # ggplot2 3.0.0.9000
 
+*   `geom_boxplot()` now understands the `width` parameter even when used with
+    a non-standard stat, such as `stat_identity()` (@clauswilke, #2893).
+
+*   `scale_*_date()`, `scale_*_time()` and `scale_*_datetime()` can now display 
+    a secondary axis that is a __one-to-one__ transformation of the primary axis,
+    implemented using the `sec.axis` argument to the scale constructor 
+    (@dpseidel, #2244).
+
 *   The error message in `compute_aesthetics()` now provides the names of only
     aesthetics with mismatched lengths, rather than all aesthetics (@karawoo,
     #2853).
     
 *   `coord_sf()` now respects manual setting of axis tick labels (@clauswilke,
-    #2857).
+    #2857, #2881).
+    
+*   `coord_sf()` now accepts two new parameters, `label_graticule` and `label_axes`,
+    that can be used to specify which graticules to label on which side of the plot
+    (@clauswilke, #2846).
+    
+*   `Coord` objects now have a function `backtransform_range()` that returns the
+    panel range in data coordinates. This change may affect developers of custom coords,
+    who now should implement this function. It may also affect developers of custom
+    geoms that use the `range()` function. In some applications, `backtransform_range()`
+    may be more appropriate.
+    (@clauswilke, #2821).
 
 *   `geom_sf()` now respects `lineend`, `linejoin`, and `linemitre` parameters 
     for lines and polygons (@alistaire47, #2826)
@@ -19,7 +38,7 @@
     `grouped_df()` objects when dplyr is not installed (@jimhester, #2822).
 
 *   All `geom_*()` now display an informative error message when required 
-    aesthetics are missing (@dpseidel, #2637 and #2706).
+    aesthetics are missing (@dpseidel, #2637 and #2706).s
 
 *   `sec_axis()` and `dup_axis()` now return appropriate breaks for the secondary
     axis when applied to log transformed scales (@dpseidel, #2729).
