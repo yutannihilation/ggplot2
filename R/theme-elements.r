@@ -14,6 +14,7 @@
 #'
 #' @param fill Fill colour.
 #' @param colour,color Line/border colour. Color is an alias for colour.
+#' @param arrow.fill fill colour to use for the arrow head (if closed).
 #' @param size Line/border size in mm; text size in pts.
 #' @param inherit.blank Should this element inherit the existence of an
 #'   `element_blank` among its parents? If `TRUE` the existence of
@@ -81,13 +82,14 @@ element_rect <- function(fill = NULL, colour = NULL, size = NULL,
 #' @param lineend Line end Line end style (round, butt, square)
 #' @param arrow Arrow specification, as created by [grid::arrow()]
 element_line <- function(colour = NULL, size = NULL, linetype = NULL,
-  lineend = NULL, color = NULL, arrow = NULL, inherit.blank = FALSE) {
+  lineend = NULL, color = NULL, arrow = NULL, arrow.fill = NULL,
+  inherit.blank = FALSE) {
 
   if (!is.null(color))  colour <- color
   if (is.null(arrow)) arrow <- FALSE
   structure(
     list(colour = colour, size = size, linetype = linetype, lineend = lineend,
-      arrow = arrow, inherit.blank = inherit.blank),
+      arrow = arrow, arrow.fill = arrow.fill, inherit.blank = inherit.blank),
     class = c("element_line", "element")
   )
 }
@@ -228,7 +230,7 @@ element_grob.element_line <- function(element, x = 0:1, y = 0:1,
   # The gp settings can override element_gp
   gp <- gpar(lwd = len0_null(size * .pt), col = colour, lty = linetype, lineend = lineend)
   element_gp <- gpar(lwd = len0_null(element$size * .pt), col = element$colour,
-    lty = element$linetype, lineend = element$lineend)
+    lty = element$linetype, lineend = element$lineend, fill = element$arrow.fill %||% element$colour)
   arrow <- if (is.logical(element$arrow) && !element$arrow) {
     NULL
   } else {
