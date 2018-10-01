@@ -116,7 +116,7 @@ theme_grey <- function(base_size = 11, base_family = "",
     # by others
     line =               element_line(
                            colour = "black", size = base_line_size,
-                           linetype = 1, lineend = "butt"
+                           linetype = 1, lineend = "butt", arrow.fill = "transparent"
                          ),
     rect =               element_rect(
                            fill = "white", colour = "black",

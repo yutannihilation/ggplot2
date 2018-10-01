@@ -17,7 +17,7 @@ element_rect(fill = NULL, colour = NULL, size = NULL,
   linetype = NULL, color = NULL, inherit.blank = FALSE)
 
 element_line(colour = NULL, size = NULL, linetype = NULL,
-  lineend = NULL, color = NULL, arrow = NULL,
+  lineend = NULL, color = NULL, arrow = NULL, arrow.fill = NULL,
   inherit.blank = FALSE)
 
 element_text(family = NULL, face = NULL, colour = NULL,
@@ -53,6 +53,8 @@ calculating final element state.}
 \item{lineend}{Line end Line end style (round, butt, square)}
 
 \item{arrow}{Arrow specification, as created by \code{\link[grid:arrow]{grid::arrow()}}}
+
+\item{arrow.fill}{fill colour to use for the arrow head (if closed).}
 
 \item{family}{Font family}
 
