@@ -9,12 +9,13 @@ matrix:
   - r: devel
   - r: release
     env: USE_VDIFFR=true
+    r_github_packages: lionel-/vdiffr
+  - r: oldrel
+  - r: 3.2
   - r: 3.1
 
-# Install manually because dev vdiffr is not compatible with Appveyor yet
-r_github_packages:
-  - "lionel-/vdiffr"
-  - "r-lib/devtools@v1.13.5"
+# work around temporary travis + R 3.5 bug
+r_packages: devtools
 
 # environment variables set for all builds
 env:
