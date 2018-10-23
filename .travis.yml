@@ -12,7 +12,9 @@ matrix:
     r_github_packages: lionel-/vdiffr
   - r: oldrel
   - r: 3.2
+    warnings_are_errors: false
   - r: 3.1
+    warnings_are_errors: false
 
 # work around temporary travis + R 3.5 bug
 r_packages: devtools
