@@ -13,10 +13,8 @@ matrix:
   - r: oldrel
   - r: 3.2
     r_github_packages: "r-lib/devtools@v1.13.5"
-    warnings_are_errors: false
   - r: 3.1
     r_github_packages: "r-lib/devtools@v1.13.5"
-    warnings_are_errors: false
 
 # environment variables set for all builds
 env:
