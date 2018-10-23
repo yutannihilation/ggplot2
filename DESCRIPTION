@@ -243,5 +243,3 @@ VignetteBuilder: knitr
 RoxygenNote: 6.1.0
 Roxygen: list(markdown = TRUE)
 Encoding: UTF-8
-Remotes:
-    r-lib/devtools@v1.13.5
