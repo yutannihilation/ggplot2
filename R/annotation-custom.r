@@ -68,17 +68,22 @@ GeomCustomAnn <- ggproto("GeomCustomAnn", Geom,
     data
   },
 
+  draw_layer = function(self, data, params, layout, coord) {
+    data[, c("xmin", "xmax")] <- layout$panel_scales_x[[1]]$transform_df(data)[c("xmin", "xmax")]
+    data[, c("ymin", "ymax")] <- layout$panel_scales_y[[1]]$transform_df(data)[c("ymin", "ymax")]
+    ggproto_parent(Geom, self)$draw_layer(data, params, layout, coord)
+  },
+
   draw_panel = function(data, panel_params, coord, grob, xmin, xmax,
                         ymin, ymax) {
     if (!inherits(coord, "CoordCartesian")) {
       stop("annotation_custom only works with Cartesian coordinates",
         call. = FALSE)
     }
-    corners <- new_data_frame(list(x = c(xmin, xmax), y = c(ymin, ymax)), n = 2)
-    data <- coord$transform(corners, panel_params)
+    data <- coord$transform(data, panel_params)
 
-    x_rng <- range(data$x, na.rm = TRUE)
-    y_rng <- range(data$y, na.rm = TRUE)
+    x_rng <- range(c(data$xmin, data$xmax), na.rm = TRUE)
+    y_rng <- range(c(data$ymin, data$ymax), na.rm = TRUE)
 
     vp <- viewport(x = mean(x_rng), y = mean(y_rng),
                    width = diff(x_rng), height = diff(y_rng),
