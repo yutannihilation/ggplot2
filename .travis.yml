@@ -9,7 +9,7 @@ matrix:
   - r: release
     env: VDIFFR_RUN_TESTS=true
     before_cache:
-    - Rscript -e 'remotes::install_cran("tidyr")'
+    - Rscript -e 'remotes::install_cran(c("tidyr", "forcats"))'
     - Rscript -e 'remotes::install_cran("pkgdown")'
     - Rscript -e 'remotes::install_github("tidyverse/tidytemplate")'
     deploy:
