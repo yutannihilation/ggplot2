@@ -78,7 +78,7 @@ ggplot2() and in individual layers." />
         <a class="navbar-brand" href="../index.html">ggplot2</a>
         <div class="info">
           <span class="partof">part of the <a href="https://tidyverse.org">tidyverse</a></span>
-          <span class="version version-danger" data-toggle="tooltip" data-placement="bottom" title="In-development version">3.1.0.9000</span>
+          <span class="version version-danger" data-toggle="tooltip" data-placement="bottom" title="In-development version">3.2.0.9000</span>
         </div>
       </div>
     </div>
@@ -95,10 +95,16 @@ ggplot2() and in individual layers." />
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
+      <a href="../articles/extending-ggplot2.html">Extending ggplot2</a>
+    </li>
+    <li>
+      <a href="../articles/ggplot2-in-packages.html">Using ggplot2 in packages</a>
+    </li>
+    <li>
       <a href="../articles/ggplot2-specs.html">Aesthetic specifications</a>
     </li>
     <li>
-      <a href="../articles/extending-ggplot2.html">Extending ggplot2</a>
+      <a href="../articles/profiling.html">Profiling Performance</a>
     </li>
   </ul>
 </li>
@@ -110,6 +116,9 @@ ggplot2() and in individual layers." />
   </a>
   <ul class="dropdown-menu" role="menu">
     <li class="dropdown-header">Release notes</li>
+    <li>
+      <a href="https://www.tidyverse.org/articles/2019/06/ggplot2-3-2-0/">Version 3.2.0</a>
+    </li>
     <li>
       <a href="https://www.tidyverse.org/articles/2018/10/ggplot2-3-1-0/">Version 3.1.0</a>
     </li>
@@ -135,6 +144,9 @@ ggplot2() and in individual layers." />
   </ul>
 </li>
         <li>
+  <a href="http://www.ggplot2-exts.org/gallery/">Extensions</a>
+</li>
+<li>
   <a href="https://github.com/tidyverse/ggplot2">
     <span class="fa fa-github fa-lg"></span>
      
@@ -172,9 +184,13 @@ properties (aesthetics) of geoms. Aesthetic mappings can be set in
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>x, y, ...</th>
-      <td><p>List of name value pairs giving aesthetics to map to
-variables. The names for x and y aesthetics are typically omitted because
-they are so common; all other aesthetics must be named.</p></td>
+      <td><p>List of name-value pairs in the form <code>aesthetic = variable</code>
+describing which variables in the layer data should be mapped to which
+aesthetics used by the paired geom/stat. The expression <code>variable</code> is
+evaluated within the layer data, so there is no need to refer to
+the original dataset (i.e., use <code><a href='ggplot.html'>ggplot(df, aes(variable))</a></code>
+instead of <code><a href='ggplot.html'>ggplot(df, aes(df$variable))</a></code>). The names for x and y aesthetics
+are typically omitted because they are so common; all other aesthetics must be named.</p></td>
     </tr>
     </table>
     
@@ -186,8 +202,8 @@ quosures or constants.</p>
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
     <p>This function also standardises aesthetic names by converting <code>color</code> to <code>colour</code>
-(also in substrings, e.g. <code>point_color</code> to <code>point_colour</code>) and translating old style
-R names to ggplot names (eg. <code>pch</code> to <code>shape</code>, <code>cex</code> to <code>size</code>).</p>
+(also in substrings, e.g., <code>point_color</code> to <code>point_colour</code>) and translating old style
+R names to ggplot names (e.g., <code>pch</code> to <code>shape</code> and <code>cex</code> to <code>size</code>).</p>
     
     <h2 class="hasAnchor" id="quasiquotation"><a class="anchor" href="#quasiquotation"></a>Quasiquotation</h2>
 

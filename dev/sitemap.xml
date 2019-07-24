@@ -118,13 +118,10 @@
     <loc>https://ggplot2.tidyverse.org/reference/element_grob.html</loc>
   </url>
   <url>
-    <loc>https://ggplot2.tidyverse.org/reference/empty.html</loc>
-  </url>
-  <url>
     <loc>https://ggplot2.tidyverse.org/reference/expand_limits.html</loc>
   </url>
   <url>
-    <loc>https://ggplot2.tidyverse.org/reference/expand_scale.html</loc>
+    <loc>https://ggplot2.tidyverse.org/reference/expansion.html</loc>
   </url>
   <url>
     <loc>https://ggplot2.tidyverse.org/reference/facet_grid.html</loc>
@@ -332,6 +329,9 @@
   </url>
   <url>
     <loc>https://ggplot2.tidyverse.org/reference/layer.html</loc>
+  </url>
+  <url>
+    <loc>https://ggplot2.tidyverse.org/reference/layer_sf.html</loc>
   </url>
   <url>
     <loc>https://ggplot2.tidyverse.org/reference/limits.html</loc>
@@ -545,6 +545,9 @@
   </url>
   <url>
     <loc>https://ggplot2.tidyverse.org/articles/extending-ggplot2.html</loc>
+  </url>
+  <url>
+    <loc>https://ggplot2.tidyverse.org/articles/ggplot2-in-packages.html</loc>
   </url>
   <url>
     <loc>https://ggplot2.tidyverse.org/articles/ggplot2-specs.html</loc>

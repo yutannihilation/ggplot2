@@ -82,7 +82,7 @@ about theme inheritance below." />
         <a class="navbar-brand" href="../index.html">ggplot2</a>
         <div class="info">
           <span class="partof">part of the <a href="https://tidyverse.org">tidyverse</a></span>
-          <span class="version version-danger" data-toggle="tooltip" data-placement="bottom" title="In-development version">3.1.0.9000</span>
+          <span class="version version-danger" data-toggle="tooltip" data-placement="bottom" title="In-development version">3.2.0.9000</span>
         </div>
       </div>
     </div>
@@ -99,10 +99,16 @@ about theme inheritance below." />
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
+      <a href="../articles/extending-ggplot2.html">Extending ggplot2</a>
+    </li>
+    <li>
+      <a href="../articles/ggplot2-in-packages.html">Using ggplot2 in packages</a>
+    </li>
+    <li>
       <a href="../articles/ggplot2-specs.html">Aesthetic specifications</a>
     </li>
     <li>
-      <a href="../articles/extending-ggplot2.html">Extending ggplot2</a>
+      <a href="../articles/profiling.html">Profiling Performance</a>
     </li>
   </ul>
 </li>
@@ -114,6 +120,9 @@ about theme inheritance below." />
   </a>
   <ul class="dropdown-menu" role="menu">
     <li class="dropdown-header">Release notes</li>
+    <li>
+      <a href="https://www.tidyverse.org/articles/2019/06/ggplot2-3-2-0/">Version 3.2.0</a>
+    </li>
     <li>
       <a href="https://www.tidyverse.org/articles/2018/10/ggplot2-3-1-0/">Version 3.1.0</a>
     </li>
@@ -139,6 +148,9 @@ about theme inheritance below." />
   </ul>
 </li>
         <li>
+  <a href="http://www.ggplot2-exts.org/gallery/">Extensions</a>
+</li>
+<li>
   <a href="https://github.com/tidyverse/ggplot2">
     <span class="fa fa-github fa-lg"></span>
      
@@ -179,6 +191,8 @@ about theme inheritance below.</p>
   <span class='no'>axis.text.x.bottom</span>, <span class='no'>axis.text.y</span>, <span class='no'>axis.text.y.left</span>, <span class='no'>axis.text.y.right</span>,
   <span class='no'>axis.ticks</span>, <span class='no'>axis.ticks.x</span>, <span class='no'>axis.ticks.x.top</span>, <span class='no'>axis.ticks.x.bottom</span>,
   <span class='no'>axis.ticks.y</span>, <span class='no'>axis.ticks.y.left</span>, <span class='no'>axis.ticks.y.right</span>, <span class='no'>axis.ticks.length</span>,
+  <span class='no'>axis.ticks.length.x</span>, <span class='no'>axis.ticks.length.x.top</span>, <span class='no'>axis.ticks.length.x.bottom</span>,
+  <span class='no'>axis.ticks.length.y</span>, <span class='no'>axis.ticks.length.y.left</span>, <span class='no'>axis.ticks.length.y.right</span>,
   <span class='no'>axis.line</span>, <span class='no'>axis.line.x</span>, <span class='no'>axis.line.x.top</span>, <span class='no'>axis.line.x.bottom</span>, <span class='no'>axis.line.y</span>,
   <span class='no'>axis.line.y.left</span>, <span class='no'>axis.line.y.right</span>, <span class='no'>legend.background</span>, <span class='no'>legend.margin</span>,
   <span class='no'>legend.spacing</span>, <span class='no'>legend.spacing.x</span>, <span class='no'>legend.spacing.y</span>, <span class='no'>legend.key</span>,
@@ -248,7 +262,7 @@ for each axis (using <code>axis.ticks.x.bottom</code>, <code>axis.ticks.x.top</c
 from <code>line</code></p></td>
     </tr>
     <tr>
-      <th>axis.ticks.length</th>
+      <th>axis.ticks.length, axis.ticks.length.x, axis.ticks.length.x.top, axis.ticks.length.x.bottom, axis.ticks.length.y, axis.ticks.length.y.left, axis.ticks.length.y.right</th>
       <td><p>length of tick marks (<code>unit</code>)</p></td>
     </tr>
     <tr>
@@ -506,7 +520,16 @@ details of the specific theme elements.</p></div>
   <span class='kw'>panel.ontop</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>
 )</div><div class='img'><img src='theme-8.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='co'># Axes ----------------------------------------------------------------------</span>
-<span class='no'>p1</span> + <span class='fu'>theme</span>(<span class='kw'>axis.line</span> <span class='kw'>=</span> <span class='fu'><a href='element.html'>element_line</a></span>(<span class='kw'>size</span> <span class='kw'>=</span> <span class='fl'>3</span>, <span class='kw'>colour</span> <span class='kw'>=</span> <span class='st'>"grey80"</span>))</div><div class='img'><img src='theme-9.png' alt='' width='700' height='433' /></div><div class='input'><span class='no'>p1</span> + <span class='fu'>theme</span>(<span class='kw'>axis.text</span> <span class='kw'>=</span> <span class='fu'><a href='element.html'>element_text</a></span>(<span class='kw'>colour</span> <span class='kw'>=</span> <span class='st'>"blue"</span>))</div><div class='img'><img src='theme-10.png' alt='' width='700' height='433' /></div><div class='input'><span class='no'>p1</span> + <span class='fu'>theme</span>(<span class='kw'>axis.ticks</span> <span class='kw'>=</span> <span class='fu'><a href='element.html'>element_line</a></span>(<span class='kw'>size</span> <span class='kw'>=</span> <span class='fl'>2</span>))</div><div class='img'><img src='theme-11.png' alt='' width='700' height='433' /></div><div class='input'><span class='no'>p1</span> + <span class='fu'>theme</span>(<span class='kw'>axis.ticks.length</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/grid/topics/unit'>unit</a></span>(<span class='fl'>.25</span>, <span class='st'>"cm"</span>))</div><div class='img'><img src='theme-12.png' alt='' width='700' height='433' /></div><div class='input'><span class='no'>p1</span> + <span class='fu'>theme</span>(<span class='kw'>axis.title.y</span> <span class='kw'>=</span> <span class='fu'><a href='element.html'>element_text</a></span>(<span class='kw'>size</span> <span class='kw'>=</span> <span class='fu'><a href='element.html'>rel</a></span>(<span class='fl'>1.5</span>), <span class='kw'>angle</span> <span class='kw'>=</span> <span class='fl'>90</span>))</div><div class='img'><img src='theme-13.png' alt='' width='700' height='433' /></div><div class='input'>
+<span class='co'># Change styles of axes texts and lines</span>
+<span class='no'>p1</span> + <span class='fu'>theme</span>(<span class='kw'>axis.line</span> <span class='kw'>=</span> <span class='fu'><a href='element.html'>element_line</a></span>(<span class='kw'>size</span> <span class='kw'>=</span> <span class='fl'>3</span>, <span class='kw'>colour</span> <span class='kw'>=</span> <span class='st'>"grey80"</span>))</div><div class='img'><img src='theme-9.png' alt='' width='700' height='433' /></div><div class='input'><span class='no'>p1</span> + <span class='fu'>theme</span>(<span class='kw'>axis.text</span> <span class='kw'>=</span> <span class='fu'><a href='element.html'>element_text</a></span>(<span class='kw'>colour</span> <span class='kw'>=</span> <span class='st'>"blue"</span>))</div><div class='img'><img src='theme-10.png' alt='' width='700' height='433' /></div><div class='input'><span class='no'>p1</span> + <span class='fu'>theme</span>(<span class='kw'>axis.ticks</span> <span class='kw'>=</span> <span class='fu'><a href='element.html'>element_line</a></span>(<span class='kw'>size</span> <span class='kw'>=</span> <span class='fl'>2</span>))</div><div class='img'><img src='theme-11.png' alt='' width='700' height='433' /></div><div class='input'>
+<span class='co'># Change the appearance of the y-axis title</span>
+<span class='no'>p1</span> + <span class='fu'>theme</span>(<span class='kw'>axis.title.y</span> <span class='kw'>=</span> <span class='fu'><a href='element.html'>element_text</a></span>(<span class='kw'>size</span> <span class='kw'>=</span> <span class='fu'><a href='element.html'>rel</a></span>(<span class='fl'>1.5</span>), <span class='kw'>angle</span> <span class='kw'>=</span> <span class='fl'>90</span>))</div><div class='img'><img src='theme-12.png' alt='' width='700' height='433' /></div><div class='input'>
+<span class='co'># Make ticks point outwards on y-axis and inwards on x-axis</span>
+<span class='no'>p1</span> + <span class='fu'>theme</span>(
+  <span class='kw'>axis.ticks.length.y</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/grid/topics/unit'>unit</a></span>(<span class='fl'>.25</span>, <span class='st'>"cm"</span>),
+  <span class='kw'>axis.ticks.length.x</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/grid/topics/unit'>unit</a></span>(-<span class='fl'>.25</span>, <span class='st'>"cm"</span>),
+  <span class='kw'>axis.text.x</span> <span class='kw'>=</span> <span class='fu'><a href='element.html'>element_text</a></span>(<span class='kw'>margin</span> <span class='kw'>=</span> <span class='fu'><a href='element.html'>margin</a></span>(<span class='kw'>t</span> <span class='kw'>=</span> <span class='fl'>.3</span>, <span class='kw'>unit</span> <span class='kw'>=</span> <span class='st'>"cm"</span>))
+)</div><div class='img'><img src='theme-13.png' alt='' width='700' height='433' /></div><div class='input'>
 </div><div class='input'><span class='co'># Legend --------------------------------------------------------------------</span>
 <span class='no'>p2</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>mtcars</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>wt</span>, <span class='no'>mpg</span>)) +
   <span class='fu'><a href='geom_point.html'>geom_point</a></span>(<span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>colour</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/factor'>factor</a></span>(<span class='no'>cyl</span>), <span class='kw'>shape</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/factor'>factor</a></span>(<span class='no'>vs</span>))) +

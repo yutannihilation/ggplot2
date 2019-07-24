@@ -80,7 +80,7 @@ scale_*_time for times (class hms)." />
         <a class="navbar-brand" href="../index.html">ggplot2</a>
         <div class="info">
           <span class="partof">part of the <a href="https://tidyverse.org">tidyverse</a></span>
-          <span class="version version-danger" data-toggle="tooltip" data-placement="bottom" title="In-development version">3.1.0.9000</span>
+          <span class="version version-danger" data-toggle="tooltip" data-placement="bottom" title="In-development version">3.2.0.9000</span>
         </div>
       </div>
     </div>
@@ -97,10 +97,16 @@ scale_*_time for times (class hms)." />
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
+      <a href="../articles/extending-ggplot2.html">Extending ggplot2</a>
+    </li>
+    <li>
+      <a href="../articles/ggplot2-in-packages.html">Using ggplot2 in packages</a>
+    </li>
+    <li>
       <a href="../articles/ggplot2-specs.html">Aesthetic specifications</a>
     </li>
     <li>
-      <a href="../articles/extending-ggplot2.html">Extending ggplot2</a>
+      <a href="../articles/profiling.html">Profiling Performance</a>
     </li>
   </ul>
 </li>
@@ -112,6 +118,9 @@ scale_*_time for times (class hms)." />
   </a>
   <ul class="dropdown-menu" role="menu">
     <li class="dropdown-header">Release notes</li>
+    <li>
+      <a href="https://www.tidyverse.org/articles/2019/06/ggplot2-3-2-0/">Version 3.2.0</a>
+    </li>
     <li>
       <a href="https://www.tidyverse.org/articles/2018/10/ggplot2-3-1-0/">Version 3.1.0</a>
     </li>
@@ -137,6 +146,9 @@ scale_*_time for times (class hms)." />
   </ul>
 </li>
         <li>
+  <a href="http://www.ggplot2-exts.org/gallery/">Extensions</a>
+</li>
+<li>
   <a href="https://github.com/tidyverse/ggplot2">
     <span class="fa fa-github fa-lg"></span>
      
@@ -263,26 +275,34 @@ like "2 weeks", or "10 years". If both <code>minor_breaks</code> and
     </tr>
     <tr>
       <th>limits</th>
-      <td><p>A numeric vector of length two providing limits of the scale.
-Use <code>NA</code> to refer to the existing minimum or maximum.</p></td>
+      <td><p>One of:</p><ul>
+<li><p><code>NULL</code> to use the default scale range</p></li>
+<li><p>A numeric vector of length two providing limits of the scale.
+Use <code>NA</code> to refer to the existing minimum or maximum</p></li>
+<li><p>A function that accepts the existing (automatic) limits and returns
+new limits
+Note that setting limits on positional scales will <strong>remove</strong> data outside of the limits.
+If the purpose is to zoom, use the limit argument in the coordinate system
+(see <code><a href='coord_cartesian.html'>coord_cartesian()</a></code>).</p></li>
+</ul></td>
     </tr>
     <tr>
       <th>expand</th>
-      <td><p>Vector of range expansion constants used to add some
-padding around the data, to ensure that they are placed some distance
-away from the axes. Use the convenience function <code><a href='expand_scale.html'>expand_scale()</a></code>
+      <td><p>For position scales, a vector of range expansion constants used to add some
+padding around the data to ensure that they are placed some distance
+away from the axes. Use the convenience function <code><a href='expansion.html'>expansion()</a></code>
 to generate the values for the <code>expand</code> argument. The defaults are to
 expand the scale by 5% on each side for continuous variables, and by
 0.6 units on each side for discrete variables.</p></td>
     </tr>
     <tr>
       <th>position</th>
-      <td><p>The position of the axis. "left" or "right" for vertical
-scales, "top" or "bottom" for horizontal scales</p></td>
+      <td><p>For position scales, The position of the axis.
+<code>left</code> or <code>right</code> for y axes, <code>top</code> or <code>bottom</code> for x axes.</p></td>
     </tr>
     <tr>
       <th>sec.axis</th>
-      <td><p>specify a secondary axis</p></td>
+      <td><p><code><a href='sec_axis.html'>sec_axis()</a></code> is used to specify a secondary axis.</p></td>
     </tr>
     <tr>
       <th>timezone</th>
@@ -291,8 +311,14 @@ scales, "top" or "bottom" for horizontal scales</p></td>
     </tr>
     <tr>
       <th>oob</th>
-      <td><p>Function that handles limits outside of the scale limits
-(out of bounds). The default replaces out of bounds values with <code>NA</code>.</p></td>
+      <td><p>One of:</p><ul>
+<li><p>Function that handles limits outside of the scale limits
+(out of bounds).</p></li>
+<li><p>The default (<code><a href='https://www.rdocumentation.org/packages/scales/topics/censor'>scales::censor()</a></code>) replaces out of
+bounds values with <code>NA</code>.</p></li>
+<li><p><code><a href='https://www.rdocumentation.org/packages/scales/topics/squish'>scales::squish()</a></code> for squishing out of bounds values into range.</p></li>
+<li><p><code><a href='https://www.rdocumentation.org/packages/scales/topics/squish_infinite'>scales::squish_infinite()</a></code> for squishing infitite values into range.</p></li>
+</ul></td>
     </tr>
     <tr>
       <th>na.value</th>

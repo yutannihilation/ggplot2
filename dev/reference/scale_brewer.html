@@ -79,7 +79,7 @@ more information." />
         <a class="navbar-brand" href="../index.html">ggplot2</a>
         <div class="info">
           <span class="partof">part of the <a href="https://tidyverse.org">tidyverse</a></span>
-          <span class="version version-danger" data-toggle="tooltip" data-placement="bottom" title="In-development version">3.1.0.9000</span>
+          <span class="version version-danger" data-toggle="tooltip" data-placement="bottom" title="In-development version">3.2.0.9000</span>
         </div>
       </div>
     </div>
@@ -96,10 +96,16 @@ more information." />
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
+      <a href="../articles/extending-ggplot2.html">Extending ggplot2</a>
+    </li>
+    <li>
+      <a href="../articles/ggplot2-in-packages.html">Using ggplot2 in packages</a>
+    </li>
+    <li>
       <a href="../articles/ggplot2-specs.html">Aesthetic specifications</a>
     </li>
     <li>
-      <a href="../articles/extending-ggplot2.html">Extending ggplot2</a>
+      <a href="../articles/profiling.html">Profiling Performance</a>
     </li>
   </ul>
 </li>
@@ -111,6 +117,9 @@ more information." />
   </a>
   <ul class="dropdown-menu" role="menu">
     <li class="dropdown-header">Release notes</li>
+    <li>
+      <a href="https://www.tidyverse.org/articles/2019/06/ggplot2-3-2-0/">Version 3.2.0</a>
+    </li>
     <li>
       <a href="https://www.tidyverse.org/articles/2018/10/ggplot2-3-1-0/">Version 3.1.0</a>
     </li>
@@ -136,6 +145,9 @@ more information." />
   </ul>
 </li>
         <li>
+  <a href="http://www.ggplot2-exts.org/gallery/">Extensions</a>
+</li>
+<li>
   <a href="https://github.com/tidyverse/ggplot2">
     <span class="fa fa-github fa-lg"></span>
      
@@ -196,8 +208,9 @@ limits, breaks, labels and so forth.</p></td>
     </tr>
     <tr>
       <th>palette</th>
-      <td><p>If a string, will use that named palette.  If a number, will
-index into the list of palettes of appropriate <code>type</code></p></td>
+      <td><p>If a string, will use that named palette. If a number, will index into
+the list of palettes of appropriate <code>type</code>. The list of available palettes can found
+in the Palettes section.</p></td>
     </tr>
     <tr>
       <th>direction</th>
@@ -254,7 +267,7 @@ interpolating 7 colours from any palette to a continuous scale.</p>
 <dt>Qualitative</dt><dd><p>Accent, Dark2, Paired, Pastel1, Pastel2, Set1, Set2, Set3</p></dd>
 <dt>Sequential</dt><dd><p>Blues, BuGn, BuPu, GnBu, Greens, Greys, Oranges,
 OrRd, PuBu, PuBuGn, PuRd, Purples, RdPu, Reds, YlGn, YlGnBu, YlOrBr, YlOrRd</p></dd>
-</dl>
+</dl><p>Modify the palette through the <code>palette</code> arguement.</p>
     
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 

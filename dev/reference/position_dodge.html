@@ -36,7 +36,8 @@
 <meta property="og:description" content="Dodging preserves the vertical position of an geom while adjusting the
 horizontal position. position_dodge2 is a special case of position_dodge
 for arranging box plots, which can have variable widths. position_dodge2
-also works with bars and rectangles." />
+also works with bars and rectangles. But unlike position_dodge,
+position_dodge2 works without a grouping variable in a layer." />
 
 <meta property="og:image" content="https://ggplot2.tidyverse.org/logo.png" />
 <meta name="twitter:card" content="summary" />
@@ -79,7 +80,7 @@ also works with bars and rectangles." />
         <a class="navbar-brand" href="../index.html">ggplot2</a>
         <div class="info">
           <span class="partof">part of the <a href="https://tidyverse.org">tidyverse</a></span>
-          <span class="version version-danger" data-toggle="tooltip" data-placement="bottom" title="In-development version">3.1.0.9000</span>
+          <span class="version version-danger" data-toggle="tooltip" data-placement="bottom" title="In-development version">3.2.0.9000</span>
         </div>
       </div>
     </div>
@@ -96,10 +97,16 @@ also works with bars and rectangles." />
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
+      <a href="../articles/extending-ggplot2.html">Extending ggplot2</a>
+    </li>
+    <li>
+      <a href="../articles/ggplot2-in-packages.html">Using ggplot2 in packages</a>
+    </li>
+    <li>
       <a href="../articles/ggplot2-specs.html">Aesthetic specifications</a>
     </li>
     <li>
-      <a href="../articles/extending-ggplot2.html">Extending ggplot2</a>
+      <a href="../articles/profiling.html">Profiling Performance</a>
     </li>
   </ul>
 </li>
@@ -111,6 +118,9 @@ also works with bars and rectangles." />
   </a>
   <ul class="dropdown-menu" role="menu">
     <li class="dropdown-header">Release notes</li>
+    <li>
+      <a href="https://www.tidyverse.org/articles/2019/06/ggplot2-3-2-0/">Version 3.2.0</a>
+    </li>
     <li>
       <a href="https://www.tidyverse.org/articles/2018/10/ggplot2-3-1-0/">Version 3.1.0</a>
     </li>
@@ -136,6 +146,9 @@ also works with bars and rectangles." />
   </ul>
 </li>
         <li>
+  <a href="http://www.ggplot2-exts.org/gallery/">Extensions</a>
+</li>
+<li>
   <a href="https://github.com/tidyverse/ggplot2">
     <span class="fa fa-github fa-lg"></span>
      
@@ -163,7 +176,8 @@ also works with bars and rectangles." />
     <p>Dodging preserves the vertical position of an geom while adjusting the
 horizontal position. <code>position_dodge2</code> is a special case of <code>position_dodge</code>
 for arranging box plots, which can have variable widths. <code>position_dodge2</code>
-also works with bars and rectangles.</p>
+also works with bars and rectangles. But unlike <code>position_dodge</code>,
+<code>position_dodge2</code> works without a grouping variable in a layer.</p>
     
     </div>
 
@@ -210,10 +224,10 @@ This is useful if you're rotating both the plot and legend.</p></td>
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>mtcars</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/factor'>factor</a></span>(<span class='no'>cyl</span>), <span class='kw'>fill</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/factor'>factor</a></span>(<span class='no'>vs</span>))) +
   <span class='fu'><a href='geom_bar.html'>geom_bar</a></span>(<span class='kw'>position</span> <span class='kw'>=</span> <span class='st'>"dodge2"</span>)</div><div class='img'><img src='position_dodge-1.png' alt='' width='700' height='433' /></div><div class='input'>
-<span class='co'># By default, dodging with `position_dodge2()` preserves the width of each</span>
-<span class='co'># element. You can choose to preserve the total width with:</span>
+<span class='co'># By default, dodging with `position_dodge2()` preserves the total width of</span>
+<span class='co'># the elements. You can choose to preserve the width of each element with:</span>
 <span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>mtcars</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/factor'>factor</a></span>(<span class='no'>cyl</span>), <span class='kw'>fill</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/factor'>factor</a></span>(<span class='no'>vs</span>))) +
-  <span class='fu'><a href='geom_bar.html'>geom_bar</a></span>(<span class='kw'>position</span> <span class='kw'>=</span> <span class='fu'>position_dodge</span>(<span class='kw'>preserve</span> <span class='kw'>=</span> <span class='st'>"total"</span>))</div><div class='img'><img src='position_dodge-2.png' alt='' width='700' height='433' /></div><div class='input'>
+  <span class='fu'><a href='geom_bar.html'>geom_bar</a></span>(<span class='kw'>position</span> <span class='kw'>=</span> <span class='fu'>position_dodge2</span>(<span class='kw'>preserve</span> <span class='kw'>=</span> <span class='st'>"single"</span>))</div><div class='img'><img src='position_dodge-2.png' alt='' width='700' height='433' /></div><div class='input'>
 </div><div class='input'><span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>diamonds</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>price</span>, <span class='kw'>fill</span> <span class='kw'>=</span> <span class='no'>cut</span>)) +
   <span class='fu'><a href='geom_histogram.html'>geom_histogram</a></span>(<span class='kw'>position</span><span class='kw'>=</span><span class='st'>"dodge2"</span>)</div><div class='output co'>#&gt; <span class='message'>`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</span></div><div class='img'><img src='position_dodge-3.png' alt='' width='700' height='433' /></div><div class='input'><span class='co'># see ?geom_bar for more examples</span>
 
