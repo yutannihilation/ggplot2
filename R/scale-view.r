@@ -128,7 +128,13 @@ ViewScale <- ggproto("ViewScale", NULL,
   get_breaks_minor = function(self) self$minor_breaks,
   get_labels = function(self, breaks = self$get_breaks()) self$scale$get_labels(breaks),
   rescale = function(self, x) {
-    self$scale$rescale(x, self$limits, self$continuous_range)
+    if (zero_range(self$continuous_range)) {
+      warn("A zero-width range is specified for coord")
+      range <- self$continuous_range + c(-1, 1) * resolution(x) / 2
+    } else {
+      range <- self$continuous_range
+    }
+    self$scale$rescale(x, self$limits, range)
   },
   map = function(self, x) {
     if (self$is_discrete()) {
