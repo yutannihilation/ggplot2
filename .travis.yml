@@ -31,6 +31,8 @@ env:
   - VDIFFR_RUN_TESTS=false
 
 script:
+  - R CMD build .
+  - R CMD check "${PKG_TARBALL}" --as-cran
   - ./ci/check_documents.sh
 
 after_success:
