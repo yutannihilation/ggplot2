@@ -32,7 +32,7 @@ env:
 
 script:
   - R CMD build .
-  - R CMD check "${PKG_TARBALL}" --as-cran
+  - R CMD check *tar.gz --as-cran
   - ./ci/check_documents.sh
 
 after_success:
