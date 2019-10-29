@@ -30,6 +30,9 @@ env:
   # switch off vdiffr by default
   - VDIFFR_RUN_TESTS=false
 
+scripts:
+  - ./ci/check_documents.sh
+
 after_success:
   - Rscript -e 'covr::codecov()'
 
