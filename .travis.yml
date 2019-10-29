@@ -30,7 +30,7 @@ env:
   # switch off vdiffr by default
   - VDIFFR_RUN_TESTS=false
 
-scripts:
+script:
   - ./ci/check_documents.sh
 
 after_success:
