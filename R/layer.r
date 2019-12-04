@@ -81,12 +81,8 @@ layer <- function(geom = NULL, stat = NULL,
     params$show_guide <- NULL
   }
   if (!is.logical(show.legend)) {
-    # a charater vector have to be allowed for LayerSf$show.legend
-    # in order to set its legend type.
-    if (!inherits(layer_class, "LayerSf")) {
-      warning("`show.legend` must be a logical vector.", call. = FALSE)
-      show.legend <- FALSE
-    }
+    warning("`show.legend` must be a logical vector.", call. = FALSE)
+    show.legend <- FALSE
   }
 
   # we validate mapping before data because in geoms and stats

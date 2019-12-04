@@ -38,7 +38,7 @@ LayerSf <- ggproto("LayerSf", Layer,
 
     # automatically determine the legend type
     if (is.na(self$show.legend) || isTRUE(self$show.legend)) {
-      if (is_sf(data)) {
+      if (is.null(self$geom_params$legend) && is_sf(data)) {
         geometry_type <- sf_geometry_type(data)
         if (sf_types[geometry_type] == "point")
           self$geom_params$legend <- "point"
@@ -46,9 +46,6 @@ LayerSf <- ggproto("LayerSf", Layer,
           self$geom_params$legend <- "line"
         else self$geom_params$legend <- "polygon"
       }
-    } else if (is.character(self$show.legend)) {
-      self$geom_params$legend = self$show.legend
-      self$show.legend = TRUE
     }
     data
   }
