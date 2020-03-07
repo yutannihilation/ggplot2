@@ -2,7 +2,7 @@
 #'
 #' `autolayer` uses ggplot2 to draw a particular layer for an object of a
 #' particular class in a single command. This defines the S3 generic that
-#' other classes and packages can extend.
+#' other classes and packages can extend. Test.
 #'
 #' @param object an object, whose class will determine the behaviour of autolayer
 #' @param ... other arguments passed to specific methods
