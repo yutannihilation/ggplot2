@@ -24,9 +24,6 @@ env:
   # switch off vdiffr by default
   - VDIFFR_RUN_TESTS=false
 
-after_success:
-  - Rscript -e 'covr::codecov()'
-
 addons:
   apt:
     sources:
