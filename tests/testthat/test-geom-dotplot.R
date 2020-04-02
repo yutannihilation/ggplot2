@@ -87,7 +87,7 @@ test_that("geom_dotplot draws correctly", {
 
   # Basic dotplot with binning along x axis
   expect_doppelganger("basic dotplot with dot-density binning, binwidth = .4",
-    ggplot(dat, aes(x)) + geom_dotplot(binwidth = .4)
+    ggplot(dat, aes(x)) + geom_dotplot(binwidth = .5)
   )
   expect_doppelganger("histodot binning (equal bin spacing)",
     ggplot(dat, aes(x)) + geom_dotplot(binwidth = .4, method = "histodot")
