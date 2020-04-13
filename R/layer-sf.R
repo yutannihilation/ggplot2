@@ -14,20 +14,17 @@ layer_sf <- function(geom = NULL, stat = NULL,
                      inherit.aes = TRUE, check.aes = TRUE, check.param = TRUE,
                      show.legend = NA) {
   if (is.character(show.legend)) {
-    legend_key_type <- show.legend
+    params$legend <- show.legend
     show.legend <- TRUE
   } else {
-    legend_key_type <- NULL
+    params$legend <- NULL
   }
-
-  # inherit from LayerSf class to add `legend_key_type` slot
-  layer_class <- ggproto(NULL, LayerSf, legend_key_type = legend_key_type)
 
   layer(
     geom = geom, stat = stat, data = data, mapping = mapping,
     position = position, params = params, inherit.aes = inherit.aes,
     check.aes = check.aes, check.param = check.param,
-    show.legend = show.legend, layer_class = layer_class
+    show.legend = show.legend, layer_class = LayerSf
   )
 }
 
@@ -47,19 +44,15 @@ LayerSf <- ggproto("LayerSf", Layer,
     }
 
     # automatically determine the legend type
-    if (is.null(self$legend_key_type)) {
-      if (is_sf(data)) {
-        sf_type <- detect_sf_type(data)
-        if (sf_type == "point") {
-          self$geom_params$legend <- "point"
-        } else if (sf_type == "line") {
-          self$geom_params$legend <- "line"
-        } else {
-          self$geom_params$legend <- "polygon"
-        }
+    if (is.null(self$geom_params$legend) && is_sf(data)) {
+      sf_type <- detect_sf_type(data)
+      if (sf_type == "point") {
+        self$geom_params$legend <- "point"
+      } else if (sf_type == "line") {
+        self$geom_params$legend <- "line"
+      } else {
+        self$geom_params$legend <- "polygon"
       }
-    } else {
-      self$geom_params$legend <- self$legend_key_type
     }
     data
   }
