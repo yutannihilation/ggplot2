@@ -2,6 +2,7 @@ on:
   push:
     branches:
       - master
+      - v3.3.0-rebuild-site
   release:
     types: [published]
 
