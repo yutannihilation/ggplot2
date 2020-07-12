@@ -184,6 +184,32 @@ GeomPath <- ggproto("GeomPath", Geom,
     end <-   c(group_diff, TRUE)
 
     if (!constant) {
+      if (!is.null(arrow) && length(arrow) == 1) {
+        arrow_lengths <- unit.c(rep(unit(0, "inches"), n - sum(end)))
+        arrow_ends <- rep(3L, n - sum(end))
+
+        # Indices of the edge elements when in-group elements are removed
+        idx_first <- start[!end]
+        idx_last <- c(end[-1], TRUE)[!end]
+
+        # "first" or "both"
+        if (isTRUE(arrow$ends %in% c(1L, 3L))) {
+          arrow_lengths[idx_first] <- arrow$length
+          arrow_ends[idx_first] <- 1L
+        }
+        # "last" or "both"
+        if (isTRUE(arrow$ends %in% c(2L, 3L))) {
+          arrow_lengths[idx_last] <- arrow$length
+          arrow_ends[idx_last] <- 2L
+        }
+        # If "both", there can be a case where a single segment has both arrows
+        if (identical(arrow$ends, 3L)) {
+          arrow_ends[idx_first & idx_last] <- 3L
+        }
+
+        arrow$length <- arrow_lengths
+        arrow$ends <- arrow_ends
+      }
       segmentsGrob(
         munched$x[!end], munched$y[!end], munched$x[!start], munched$y[!start],
         default.units = "native", arrow = arrow,
