@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Annotation: a maps — annotation_map • ggplot2</title>
+<title>Annotation: a map — annotation_map • ggplot2</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -17,32 +17,49 @@
 <link rel="apple-touch-icon" type="image/png" sizes="60x60" href="../apple-touch-icon-60x60.png" />
 
 <!-- jquery -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 
 <!-- Bootstrap -->
 <link href="../tidyverse.css" rel="stylesheet">
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script>
+
+<!-- bootstrap-toc -->
+<link rel="stylesheet" href="../bootstrap-toc.css">
+<script src="../bootstrap-toc.js"></script>
 
 <!-- Font Awesome icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/all.min.css" integrity="sha256-nAmazAk6vS34Xqo0BSrTb+abbtFlgsFK7NKSi6o7Y78=" crossorigin="anonymous" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/v4-shims.min.css" integrity="sha256-6qHlizsOWFskGlwVOKuns+D1nB6ssZrHQrNj1wGplHc=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous" />
 
 <!-- clipboard.js -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script>
 
 <!-- headroom.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/headroom.min.js" integrity="sha256-DJFC1kqIhelURkuza0AvYal5RxMtpzLjFhsnVIeuk+U=" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
 
 <!-- pkgdown -->
 <link href="../pkgdown.css" rel="stylesheet">
 <script src="../pkgdown.js"></script>
 <link href="../tidyverse-2.css" rel="stylesheet">
 
+<!--optional theme-->
+<link href="../.css" rel="stylesheet">
 
 
-<meta property="og:title" content="Annotation: a maps — annotation_map" />
-<meta property="og:description" content="Display a fixed map on a plot." />
+
+<!-- docsearch -->
+<script src="../docsearch.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/docsearch.js/2.6.1/docsearch.min.css" integrity="sha256-QOSRU/ra9ActyXkIBbiIB144aDBdtvXBcNc3OTNuX/Q=" crossorigin="anonymous" />
+<link href="../docsearch.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin="anonymous"></script>
+
+
+<meta property="og:title" content="Annotation: a map — annotation_map" />
+<meta property="og:description" content="Display a fixed map on a plot. This function predates the geom_sf()
+framework and does not work with sf geometry columns as input. However,
+it can be used in conjunction with geom_sf() layers and/or
+coord_sf() (see examples)." />
 <meta property="og:image" content="https://ggplot2.tidyverse.org/logo.png" />
 <meta name="twitter:card" content="summary" />
 
@@ -70,7 +87,7 @@
 
   </head>
 
-  <body>
+  <body data-spy="scroll" data-target="#toc">
     <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -85,9 +102,9 @@
 
       <div class="navbar-brand-container">
         <a class="navbar-brand" href="../index.html">ggplot2</a>
-        <div class="info">
+        <div class="info hidden-xs hidden-sm">
           <span class="partof">part of the <a href="https://tidyverse.org">tidyverse</a></span>
-          <span class="version version-danger" data-toggle="tooltip" data-placement="bottom" title="In-development version">3.3.0.9000</span>
+          <span class="version version-danger" data-toggle="tooltip" data-placement="bottom" title="In-development version">3.3.2.9000</span>
         </div>
       </div>
     </div>
@@ -98,33 +115,12 @@
 </li>
 <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    Articles
-     
-    <span class="caret"></span>
-  </a>
-  <ul class="dropdown-menu" role="menu">
-    <li>
-      <a href="../articles/extending-ggplot2.html">Extending ggplot2</a>
-    </li>
-    <li>
-      <a href="../articles/ggplot2-in-packages.html">Using ggplot2 in packages</a>
-    </li>
-    <li>
-      <a href="../articles/ggplot2-specs.html">Aesthetic specifications</a>
-    </li>
-    <li>
-      <a href="../articles/profiling.html">Profiling Performance</a>
-    </li>
-  </ul>
-</li>
-<li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
     News
      
     <span class="caret"></span>
   </a>
   <ul class="dropdown-menu" role="menu">
-    <li class="dropdown-header">Release notes</li>
+    <li class="dropdown-header">Releases</li>
     <li>
       <a href="https://www.tidyverse.org/blog/2020/03/ggplot2-3-3-0/">Version 3.3.0</a>
     </li>
@@ -151,20 +147,47 @@
     </li>
     <li class="divider"></li>
     <li>
-      <a href="../news/index.html">Change log</a>
+      <a href="../news/index.html">Changelog</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Articles
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="../articles/extending-ggplot2.html">Extending ggplot2</a>
+    </li>
+    <li>
+      <a href="../articles/ggplot2-in-packages.html">Using ggplot2 in packages</a>
+    </li>
+    <li>
+      <a href="../articles/ggplot2-specs.html">Aesthetic specifications</a>
+    </li>
+    <li>
+      <a href="../articles/profiling.html">Profiling Performance</a>
     </li>
   </ul>
 </li>
         <li>
-  <a href="https://www.ggplot2-exts.org/gallery/">Extensions</a>
+  <a href="https://exts.ggplot2.tidyverse.org/gallery/">Extensions</a>
 </li>
 <li>
-  <a href="https://github.com/tidyverse/ggplot2">
+  <a href="https://github.com/tidyverse/ggplot2/">
     <span class="fab fa fab fa-github fa-lg"></span>
      
   </a>
 </li>
       </ul>
+      
+      <form class="navbar-form navbar-right" role="search">
+        <div class="form-group">
+          <input type="search" class="form-control" name="search-input" id="search-input" placeholder="Search..." aria-label="Search for..." autocomplete="off">
+        </div>
+      </form>
       
     </div><!--/.nav-collapse -->
   </div><!--/.container -->
@@ -177,59 +200,83 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Annotation: a maps</h1>
+    <h1>Annotation: a map</h1>
     <small class="dont-index">Source: <a href='https://github.com/tidyverse/ggplot2/blob/master/R/annotation-map.r'><code>R/annotation-map.r</code></a></small>
     <div class="hidden name"><code>annotation_map.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Display a fixed map on a plot.</p>
+    <p>Display a fixed map on a plot. This function predates the <code><a href='CoordSf.html'>geom_sf()</a></code>
+framework and does not work with sf geometry columns as input. However,
+it can be used in conjunction with <code><a href='CoordSf.html'>geom_sf()</a></code> layers and/or
+<code><a href='CoordSf.html'>coord_sf()</a></code> (see examples).</p>
     </div>
 
-    <pre class="usage"><span class='fu'>annotation_map</span>(<span class='no'>map</span>, <span class='no'>...</span>)</pre>
+    <pre class="usage"><span class='fu'>annotation_map</span>(<span class='kw'>map</span>, <span class='kw'>...</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>map</th>
-      <td><p>data frame representing a map.  Most map objects can be
-converted into the right format by using <code><a href='fortify.html'>fortify()</a></code></p></td>
+      <td><p>Data frame representing a map. See <code><a href='geom_map.html'>geom_map()</a></code> for
+details.</p></td>
     </tr>
     <tr>
       <th>...</th>
-      <td><p>other arguments used to modify aesthetics</p></td>
+      <td><p>Other arguments used to modify visual parameters, such as
+<code>colour</code> or <code>fill</code>.</p></td>
     </tr>
     </table>
 
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='kw'>if</span> (<span class='fu'><a href='https://rdrr.io/r/base/library.html'>require</a></span>(<span class='st'>"maps"</span>)) {
-<span class='no'>usamap</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='map_data.html'>map_data</a></span>(<span class='st'>"state"</span>)
+    <pre class="examples"><div class='input'><span class='co'>if</span> (<span class='fl'>FALSE</span>) {
+<span class='co'>if</span> (<span class='fu'><a href='https://rdrr.io/r/base/ns-load.html'>requireNamespace</a></span>(<span class='st'>"maps"</span>, quietly = <span class='fl'>TRUE</span>)) {
+<span class='co'># location of cities in North Carolina</span>
+<span class='kw'>df</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a></span>(
+  name = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"Charlotte"</span>, <span class='st'>"Raleigh"</span>, <span class='st'>"Greensboro"</span>),
+  lat = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>35.227</span>, <span class='fl'>35.772</span>, <span class='fl'>36.073</span>),
+  long = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='op'>-</span><span class='fl'>80.843</span>, <span class='op'>-</span><span class='fl'>78.639</span>, <span class='op'>-</span><span class='fl'>79.792</span>)
+)
 
-<span class='no'>seal.sub</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/subset.html'>subset</a></span>(<span class='no'>seals</span>, <span class='no'>long</span> <span class='kw'>&gt;</span> -<span class='fl'>130</span> <span class='kw'>&amp;</span> <span class='no'>lat</span> <span class='kw'>&lt;</span> <span class='fl'>45</span> <span class='kw'>&amp;</span> <span class='no'>lat</span> <span class='kw'>&gt;</span> <span class='fl'>40</span>)
-<span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>seal.sub</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='no'>long</span>, <span class='kw'>y</span> <span class='kw'>=</span> <span class='no'>lat</span>)) +
-  <span class='fu'>annotation_map</span>(<span class='no'>usamap</span>, <span class='kw'>fill</span> <span class='kw'>=</span> <span class='fl'>NA</span>, <span class='kw'>colour</span> <span class='kw'>=</span> <span class='st'>"grey50"</span>) +
-  <span class='fu'><a href='geom_segment.html'>geom_segment</a></span>(<span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>xend</span> <span class='kw'>=</span> <span class='no'>long</span> + <span class='no'>delta_long</span>, <span class='kw'>yend</span> <span class='kw'>=</span> <span class='no'>lat</span> + <span class='no'>delta_lat</span>))
-}</div><div class='output co'>#&gt; <span class='message'>Loading required package: maps</span></div><div class='img'><img src='annotation_map-1.png' alt='' width='700' height='433' /></div><div class='input'>
-<span class='kw'>if</span> (<span class='fu'><a href='https://rdrr.io/r/base/library.html'>require</a></span>(<span class='st'>"maps"</span>)) {
-<span class='no'>seal2</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/transform.html'>transform</a></span>(<span class='no'>seal.sub</span>,
-  <span class='kw'>latr</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/cut.html'>cut</a></span>(<span class='no'>lat</span>, <span class='fl'>2</span>),
-  <span class='kw'>longr</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/cut.html'>cut</a></span>(<span class='no'>long</span>, <span class='fl'>2</span>))
+<span class='kw'>p</span> <span class='op'>&lt;-</span> <span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='kw'>df</span>, <span class='fu'><a href='aes.html'>aes</a></span>(x = <span class='kw'>long</span>, y = <span class='kw'>lat</span>)) <span class='op'>+</span>
+  <span class='fu'>annotation_map</span>(
+    <span class='fu'><a href='map_data.html'>map_data</a></span>(<span class='st'>"state"</span>),
+    fill = <span class='st'>"antiquewhite"</span>, colour = <span class='st'>"darkgrey"</span>
+  ) <span class='op'>+</span>
+  <span class='fu'><a href='geom_point.html'>geom_point</a></span>(color = <span class='st'>"blue"</span>) <span class='op'>+</span>
+  <span class='fu'><a href='geom_label.html'>geom_text</a></span>(
+    <span class='fu'><a href='aes.html'>aes</a></span>(label = <span class='kw'>name</span>),
+    hjust = <span class='fl'>1.105</span>, vjust = <span class='fl'>1.05</span>, color = <span class='st'>"blue"</span>
+  )
 
-<span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>seal2</span>,  <span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='no'>long</span>, <span class='kw'>y</span> <span class='kw'>=</span> <span class='no'>lat</span>)) +
-  <span class='fu'>annotation_map</span>(<span class='no'>usamap</span>, <span class='kw'>fill</span> <span class='kw'>=</span> <span class='fl'>NA</span>, <span class='kw'>colour</span> <span class='kw'>=</span> <span class='st'>"grey50"</span>) +
-  <span class='fu'><a href='geom_segment.html'>geom_segment</a></span>(<span class='fu'><a href='aes.html'>aes</a></span>(<span class='kw'>xend</span> <span class='kw'>=</span> <span class='no'>long</span> + <span class='no'>delta_long</span>, <span class='kw'>yend</span> <span class='kw'>=</span> <span class='no'>lat</span> + <span class='no'>delta_lat</span>)) +
-  <span class='fu'><a href='facet_grid.html'>facet_grid</a></span>(<span class='no'>latr</span> ~ <span class='no'>longr</span>, <span class='kw'>scales</span> <span class='kw'>=</span> <span class='st'>"free"</span>, <span class='kw'>space</span> <span class='kw'>=</span> <span class='st'>"free"</span>)
-}</div><div class='img'><img src='annotation_map-2.png' alt='' width='700' height='433' /></div></pre>
+<span class='co'># use without coord_sf() is possible but not recommended</span>
+<span class='kw'>p</span> <span class='op'>+</span> <span class='fu'><a href='lims.html'>xlim</a></span>(<span class='op'>-</span><span class='fl'>84</span>, <span class='op'>-</span><span class='fl'>76</span>) <span class='op'>+</span> <span class='fu'><a href='lims.html'>ylim</a></span>(<span class='fl'>34</span>, <span class='fl'>37.2</span>)
+
+<span class='co'>if</span> (<span class='fu'><a href='https://rdrr.io/r/base/ns-load.html'>requireNamespace</a></span>(<span class='st'>"sf"</span>, quietly = <span class='fl'>TRUE</span>)) {
+<span class='co'># use with coord_sf() for appropriate projection</span>
+<span class='kw'>p</span> <span class='op'>+</span>
+  <span class='fu'><a href='CoordSf.html'>coord_sf</a></span>(
+    crs = <span class='fu'>st_crs</span>(<span class='fl'>3347</span>),
+    xlim = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='op'>-</span><span class='fl'>84</span>, <span class='op'>-</span><span class='fl'>76</span>),
+    ylim = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>34</span>, <span class='fl'>37.2</span>)
+  )
+
+<span class='co'># you can mix annotation_map() and geom_sf()</span>
+<span class='kw'>nc</span> <span class='op'>&lt;-</span> <span class='kw'>sf</span>::<span class='fu'><a href='https://rdrr.io/pkg/sf/man/st_read.html'>st_read</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span>(<span class='st'>"shape/nc.shp"</span>, package = <span class='st'>"sf"</span>), quiet = <span class='fl'>TRUE</span>)
+<span class='kw'>p</span> <span class='op'>+</span>
+  <span class='fu'><a href='CoordSf.html'>geom_sf</a></span>(
+    data = <span class='kw'>nc</span>, inherit.aes = <span class='fl'>FALSE</span>,
+    fill = <span class='fl'>NA</span>, color = <span class='st'>"black"</span>, size = <span class='fl'>0.1</span>
+  ) <span class='op'>+</span>
+  <span class='fu'><a href='CoordSf.html'>coord_sf</a></span>(crs = <span class='fu'>st_crs</span>(<span class='fl'>3347</span>))
+}}}</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
-    <h2>Contents</h2>
-    <ul class="nav nav-pills nav-stacked">
-      <li><a href="#arguments">Arguments</a></li>
-      <li><a href="#examples">Examples</a></li>
-    </ul>
-
+    <nav id="toc" data-toggle="toc" class="sticky-top">
+      <h2 data-toc-skip>Contents</h2>
+    </nav>
   </div>
 </div>
 
@@ -241,7 +288,7 @@ converted into the right format by using <code><a href='fortify.html'>fortify()<
 
 <div class="author">
   <p>
-    Developed by <a href='http://hadley.nz'>Hadley Wickham</a>, Winston Chang, Lionel Henry, Thomas Lin Pedersen, Kohske Takahashi, Claus Wilke, Kara Woo, Hiroaki Yutani, Dewey Dunnington.
+    Developed by <a href='http://hadley.nz'>Hadley Wickham</a>, <a href='https://github.com/wch'>Winston Chang</a>, <a href='https://github.com/lionel-'>Lionel Henry</a>, <a href='https://data-imaginist.com'>Thomas Lin Pedersen</a>, Kohske Takahashi, <a href='https://clauswilke.com'>Claus Wilke</a>, <a href='https://karawoo.com'>Kara Woo</a>, <a href='https://yutani.rbind.io'>Hiroaki Yutani</a>, <a href='https://fishandwhistle.net'>Dewey Dunnington</a>, <a href='https://www.rstudio.com'><img src='https://www.tidyverse.org/rstudio-logo.svg' alt='RStudio' height='24' /></a>.
     Site built by <a href="https://pkgdown.r-lib.org">pkgdown</a>.
   </p>
 </div>
@@ -250,6 +297,23 @@ converted into the right format by using <code><a href='fortify.html'>fortify()<
    </div>
 
   
+<script src="https://cdnjs.cloudflare.com/ajax/libs/docsearch.js/2.6.1/docsearch.min.js" integrity="sha256-GKvGqXDznoRYHCwKXGnuchvKSwmx9SRMrZOTh2g4Sb0=" crossorigin="anonymous"></script>
+<script>
+  docsearch({
+    
+    
+    apiKey: 'e1261f3df95d2d4704c626ff11a4b536',
+    indexName: 'tidyverse_ggplot2',
+    inputSelector: 'input#search-input.form-control',
+    transformData: function(hits) {
+      return hits.map(function (hit) {
+        hit.url = updateHitURL(hit);
+        return hit;
+      });
+    }
+  });
+</script>
+
 
 
   </body>
