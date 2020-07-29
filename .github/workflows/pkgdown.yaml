@@ -2,6 +2,7 @@ on:
   push:
     branches:
       - master
+      - test-pkgdown
   release:
     types: [published]
 
