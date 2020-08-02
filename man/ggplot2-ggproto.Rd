@@ -132,7 +132,7 @@
 \alias{StatSummary}
 \alias{StatUnique}
 \alias{StatYdensity}
-\title{Base ggproto classes for ggplot2}
+\title{Foo}
 \description{
 If you are creating a new geom, stat, position, or scale in another package,
 you'll need to extend from \code{ggplot2::Geom}, \code{ggplot2::Stat},
