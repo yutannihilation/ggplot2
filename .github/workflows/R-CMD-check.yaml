@@ -29,8 +29,8 @@ jobs:
           - {os: ubuntu-16.04,   r: '3.6',   vdiffr: false, xref: true,  cran: "https://demo.rstudiopm.com/all/__linux__/xenial/latest"}
           - {os: ubuntu-16.04,   r: '3.5',   vdiffr: false, xref: true,  cran: "https://demo.rstudiopm.com/all/__linux__/xenial/latest"}
           - {os: ubuntu-16.04,   r: '3.4',   vdiffr: false, xref: true,  cran: "https://demo.rstudiopm.com/all/__linux__/xenial/latest"}
-          - {os: ubuntu-16.04,   r: '3.3',   vdiffr: false, xref: true,  cran: "https://demo.rstudiopm.com/all/__linux__/xenial/latest"}
-          - {os: ubuntu-16.04,   r: '3.2',   vdiffr: false, xref: false, cran: "https://demo.rstudiopm.com/all/__linux__/xenial/latest"}
+          - {os: ubuntu-16.04,   r: '3.3',   vdiffr: false, xref: true,  cran: "https://cran.rstudio.com/"}
+          - {os: ubuntu-16.04,   r: '3.2',   vdiffr: false, xref: false, cran: "https://cran.rstudio.com/"}
 
     env:
       R_REMOTES_NO_ERRORS_FROM_WARNINGS: true
