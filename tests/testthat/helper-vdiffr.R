@@ -6,5 +6,5 @@ if (requireNamespace("vdiffr", quietly = TRUE)) {
   expect_doppelganger <- vdiffr::expect_doppelganger
 } else {
   # If vdiffr is not available, assign a dummy function
-  expect_doppelganger <- function(...) NULL
+  expect_doppelganger <- function(...) skip("vdiffr is not installed.")
 }
