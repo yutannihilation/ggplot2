@@ -17,7 +17,7 @@ ScalesList <- ggproto("ScalesList", NULL,
     any(self$find(aesthetic))
   },
 
-  add = function(self, scale) {
+  add = function(self, scale, use_prior_params = FALSE) {
     if (is.null(scale)) {
       return()
     }
@@ -31,8 +31,10 @@ ScalesList <- ggproto("ScalesList", NULL,
         prev_scale$update_params(scale$params)
         return()
       } else if (inherits(prev_scale, "ScaleParams")) {
-        # if the existing scale is parameter-only, use it to update the new scale
-        scale$update_params(prev_scale$params)
+        if (use_prior_params) {
+          # if the existing scale is parameter-only, use it to update the new scale
+          scale$update_params(prev_scale$params)
+        }
       } else {
         # Get only the first aesthetic name in the returned vector -- it can
         # sometimes be c("x", "xmin", "xmax", ....)
@@ -113,7 +115,7 @@ scales_add_defaults <- function(scales, data, aesthetics, env) {
   datacols <- compact(datacols)
 
   for (aes in names(datacols)) {
-    scales$add(find_scale(aes, datacols[[aes]], env))
+    scales$add(find_scale(aes, datacols[[aes]], env), use_prior_params = TRUE)
   }
 
 }
