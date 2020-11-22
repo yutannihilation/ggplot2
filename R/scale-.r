@@ -1200,7 +1200,7 @@ scale_x_auto <- function(name = waiver(), ...) {
   )
 }
 
-scale_y_auto <- function(...) {
+scale_y_auto <- function(name = waiver(), ...) {
   params <- list(name = name, ...)
 
   ggproto(NULL, ScaleParams,
