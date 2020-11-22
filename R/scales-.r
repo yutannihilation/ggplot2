@@ -24,12 +24,23 @@ ScalesList <- ggproto("ScalesList", NULL,
 
     prev_aes <- self$find(scale$aesthetics)
     if (any(prev_aes)) {
-      # Get only the first aesthetic name in the returned vector -- it can
-      # sometimes be c("x", "xmin", "xmax", ....)
-      scalename <- self$scales[prev_aes][[1]]$aesthetics[1]
-      message_wrap("Scale for '", scalename,
-        "' is already present. Adding another scale for '", scalename,
-        "', which will replace the existing scale.")
+      prev_scale <- self$scales[prev_aes][[1]]
+
+      if (inherits(scale, "ScaleParams")) {
+        # if the new scale is parameter-only, update the params of the existing scale
+        prev_scale$update_params(scale$params)
+        return()
+      } else if (inherits(prev_scale, "ScaleParams")) {
+        # if the existing scale is parameter-only, use it to update the new scale
+        scale$update_params(prev_scale$params)
+      } else {
+        # Get only the first aesthetic name in the returned vector -- it can
+        # sometimes be c("x", "xmin", "xmax", ....)
+        scalename <- prev_scale$aesthetics[1]
+        message_wrap("Scale for '", scalename,
+          "' is already present. Adding another scale for '", scalename,
+          "', which will replace the existing scale.")
+      }
     }
 
     # Remove old scale for this aesthetic (if it exists)
@@ -41,7 +52,9 @@ ScalesList <- ggproto("ScalesList", NULL,
   },
 
   input = function(self) {
-    unlist(lapply(self$scales, "[[", "aesthetics"))
+    # Ignore parameter-only scales
+    idx <- vapply(self$scales, inherits, logical(1), what = "ScaleParams")
+    unlist(lapply(self$scales[!idx], "[[", "aesthetics"))
   },
 
   # This actually makes a descendant of self, which is functionally the same

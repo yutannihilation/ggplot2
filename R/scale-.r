@@ -389,6 +389,9 @@ Scale <- ggproto("Scale", NULL,
   position = "left",
 
 
+  update_params = function(self, params) {
+  },
+
   is_discrete = function() {
     abort("Not implemented")
   },
@@ -547,6 +550,13 @@ ScaleContinuous <- ggproto("ScaleContinuous", Scale,
   minor_breaks = waiver(),
   n.breaks = NULL,
   trans = identity_trans(),
+
+  update_params = function(self, params) {
+    self$name <- params$name %||% self$name
+    self$breaks <- params$breaks %||% self$breaks
+    self$labels <- params$labels %||% self$labels
+    self$expand <- params$expand %||% self$expand
+  },
 
   is_discrete = function() FALSE,
 
@@ -1166,4 +1176,36 @@ check_transformation <- function(x, transformed, name, axis) {
 
 trans_support_nbreaks <- function(trans) {
   "n" %in% names(formals(trans$breaks))
+}
+
+ScaleParams <- ggproto("ScaleParams", Scale,
+  params = list(),
+
+  update_params = function(self, params) {
+    self$params <- defaults(params, self$params)
+  },
+
+  clone = function(self) {
+    ggproto(NULL, self)
+  }
+)
+
+scale_x_auto <- function(name = waiver(), ...) {
+  params <- list(name = name, ...)
+
+  ggproto(NULL, ScaleParams,
+    aesthetics = ggplot_global$x_aes,
+    scale_name = "params_x",
+    params = params[!vapply(params, is.waive, logical(1))]
+  )
+}
+
+scale_y_auto <- function(...) {
+  params <- list(name = name, ...)
+
+  ggproto(NULL, ScaleParams,
+    aesthetics = ggplot_global$y_aes,
+    scale_name = "params_y",
+    params = params[!vapply(params, is.waive, logical(1))]
+  )
 }
