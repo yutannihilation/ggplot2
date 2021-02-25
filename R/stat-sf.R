@@ -9,6 +9,17 @@ StatSf <- ggproto("StatSf", Stat,
     ggproto_parent(Stat, self)$compute_layer(data, params, layout)
   },
 
+  compute_panel = function(self, data, scales, ...) {
+    # original index
+    idx <- seq_len(nrow(data))
+    # reorder the index by the group, as the data will be sorted by group later
+    idx <- idx[order(data$group, idx)]
+    # compute as usual
+    data <- ggproto_parent(Stat, self)$compute_panel(data, scales, ...)
+    # match the rows to the original index
+    data[order(idx), ]
+  },
+
   compute_group = function(data, scales, coord) {
     geometry_data <- data[[ geom_column(data) ]]
     geometry_crs <- sf::st_crs(geometry_data)
