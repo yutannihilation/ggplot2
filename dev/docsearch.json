@@ -2,21 +2,21 @@
   "index_name": "tidyverse_ggplot2",
   "start_urls": [
     {
-      "url": "https://ggplot2.tidyverse.org/index.html",
+      "url": "https://yutannihilation.github.io/ggplot2/index.html",
       "selectors_key": "homepage",
       "tags": [
         "homepage"
       ]
     },
     {
-      "url": "https://ggplot2.tidyverse.org/reference",
+      "url": "https://yutannihilation.github.io/ggplot2/reference",
       "selectors_key": "reference",
       "tags": [
         "reference"
       ]
     },
     {
-      "url": "https://ggplot2.tidyverse.org/articles",
+      "url": "https://yutannihilation.github.io/ggplot2/articles",
       "selectors_key": "articles",
       "tags": [
         "articles"
@@ -30,7 +30,7 @@
     "/articles/index.html"
   ],
   "sitemap_urls": [
-    "https://ggplot2.tidyverse.org/sitemap.xml"
+    "https://yutannihilation.github.io/ggplot2/sitemap.xml"
   ],
   "selectors": {
     "homepage": {

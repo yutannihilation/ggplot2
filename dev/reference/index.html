@@ -56,7 +56,7 @@
 
 
 <meta property="og:title" content="Function reference" />
-<meta property="og:image" content="https://ggplot2.tidyverse.org/logo.png" />
+<meta property="og:image" content="https://yutannihilation.github.io/ggplot2/logo.png" />
 <meta name="twitter:card" content="summary" />
 
 
@@ -81,9 +81,15 @@
   gtag('config', 'UA-115082821-1');
 </script>
 
+  
+
+  
+
   </head>
 
   <body data-spy="scroll" data-target="#toc">
+    
+
     <div class="container template-reference-index">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -100,12 +106,13 @@
         <a class="navbar-brand" href="../index.html">ggplot2</a>
         <div class="info hidden-xs hidden-sm">
           <span class="partof">part of the <a href="https://tidyverse.org">tidyverse</a></span>
-          <span class="version version-danger" data-toggle="tooltip" data-placement="bottom" title="In-development version">3.3.2.9000</span>
+          <span class="version version-danger" data-toggle="tooltip" data-placement="bottom" title="In-development version">3.3.3.9000</span>
         </div>
       </div>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav navbar-right">
+        
         <li>
   <a href="../reference/index.html">Reference</a>
 </li>
@@ -168,12 +175,12 @@
     </li>
   </ul>
 </li>
-        <li>
+<li>
   <a href="https://exts.ggplot2.tidyverse.org/gallery/">Extensions</a>
 </li>
 <li>
   <a href="https://github.com/tidyverse/ggplot2/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -211,7 +218,7 @@
       <tr>
         <th colspan="3">
           <h2 id="section-plot-basics" class="hasAnchor"><a href="#section-plot-basics" class="anchor"></a>Plot basics</h2>
-          <p class="section-desc"><p>All ggplot2 plots begin with a call to <code><a href="../reference/ggplot.html">ggplot()</a></code>, supplying default data and aesthethic mappings, specified by <code><a href="../reference/aes.html">aes()</a></code>. You then add layers, scales, coords and facets with <code><a href="https://rdrr.io/r/base/Arithmetic.html">+</a></code>. To save a plot to disk, use <code><a href="../reference/ggsave.html">ggsave()</a></code>.</p></p>
+          <p class="section-desc"><p>All ggplot2 plots begin with a call to <code><a href="../reference/ggplot.html">ggplot()</a></code>, supplying default data and aesthethic mappings, specified by <code><a href="../reference/aes.html">aes()</a></code>. You then add layers, scales, coords and facets with <code><a href="https://rdrr.io/r/base/Arithmetic.html" class="external-link">+</a></code>. To save a plot to disk, use <code><a href="../reference/ggsave.html">ggsave()</a></code>.</p></p>
         </th>
       </tr>
       
@@ -1105,7 +1112,7 @@
         <td>
           <p><code><a href="mean_se.html">mean_se()</a></code> </p>
         </td>
-        <td><p>Calculate mean and standard error</p></td>
+        <td><p>Calculate mean and standard error of the mean</p></td>
       </tr><tr>
         <td></td>
         <td>
@@ -1190,7 +1197,7 @@
       <tr>
         <th colspan="3">
           <h2 id="section-autoplot-and-fortify" class="hasAnchor"><a href="#section-autoplot-and-fortify" class="anchor"></a>Autoplot and fortify</h2>
-          <p class="section-desc"><p><code><a href="../reference/autoplot.html">autoplot()</a></code> is an extension mechanism for ggplot2: it provides a way for package authors to add methods that work like the base <code><a href="https://rdrr.io/r/graphics/plot.default.html">plot()</a></code> function, generating useful default plots with little user interaction. <code><a href="../reference/fortify.html">fortify()</a></code> turns objects into tidy data frames: it has largely been superceded by the <a href="https://github.com/tidyverse/broom">broom package</a>.</p></p>
+          <p class="section-desc"><p><code><a href="../reference/autoplot.html">autoplot()</a></code> is an extension mechanism for ggplot2: it provides a way for package authors to add methods that work like the base <code><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot()</a></code> function, generating useful default plots with little user interaction. <code><a href="../reference/fortify.html">fortify()</a></code> turns objects into tidy data frames: it has largely been superceded by the <a href="https://github.com/tidyverse/broom" class="external-link">broom package</a>.</p></p>
         </th>
       </tr>
       
@@ -1237,12 +1244,12 @@
 
       <footer>
       <div class="tidyverse">
-  <p>ggplot2 is a part of the <strong>tidyverse</strong>, an ecosystem of packages designed with common APIs and a shared philosophy. Learn more at <a href="https://tidyverse.org">tidyverse.org</a>.</p>
+  <p><p>Developed by <a href="http://hadley.nz" class="external-link">Hadley Wickham</a>, <a href="https://github.com/wch" class="external-link">Winston Chang</a>, <a href="https://github.com/lionel-" class="external-link">Lionel Henry</a>, <a href="https://data-imaginist.com" class="external-link">Thomas Lin Pedersen</a>, Kohske Takahashi, <a href="https://clauswilke.com" class="external-link">Claus Wilke</a>, <a href="https://karawoo.com" class="external-link">Kara Woo</a>, <a href="https://yutani.rbind.io" class="external-link">Hiroaki Yutani</a>, <a href="https://fishandwhistle.net" class="external-link">Dewey Dunnington</a>, <a href="https://www.rstudio.com" class="external-link"><img src="https://www.tidyverse.org/rstudio-logo.svg" alt="RStudio" height="24"></a>.</p>,<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 1.6.1.9000.</p></p>
 </div>
 
 <div class="author">
   <p>
-    Developed by <a href='http://hadley.nz'>Hadley Wickham</a>, <a href='https://github.com/wch'>Winston Chang</a>, <a href='https://github.com/lionel-'>Lionel Henry</a>, <a href='https://data-imaginist.com'>Thomas Lin Pedersen</a>, Kohske Takahashi, <a href='https://clauswilke.com'>Claus Wilke</a>, <a href='https://karawoo.com'>Kara Woo</a>, <a href='https://yutani.rbind.io'>Hiroaki Yutani</a>, <a href='https://fishandwhistle.net'>Dewey Dunnington</a>, <a href='https://www.rstudio.com'><img src='https://www.tidyverse.org/rstudio-logo.svg' alt='RStudio' height='24' /></a>.
+    Developed by <a href='http://hadley.nz'>Hadley Wickham</a>, <a href='https://github.com/wch'>Winston Chang</a>, <a href='https://github.com/lionel-'>Lionel Henry</a>, <a href='https://data-imaginist.com'>Thomas Lin Pedersen</a>, Kohske Takahashi, <a href='https://clauswilke.com'>Claus Wilke</a>, <a href='https://karawoo.com'>Kara Woo</a>, <a href='https://yutani.rbind.io'>Hiroaki Yutani</a>, <a href='https://fishandwhistle.net'>Dewey Dunnington</a>, <a href='https://www.rstudio.com'><img src="https://www.tidyverse.org/rstudio-logo.svg" alt="RStudio" height="24"></a>.
     Site built by <a href="https://pkgdown.r-lib.org">pkgdown</a>.
   </p>
 </div>
@@ -1269,6 +1276,8 @@
 </script>
 
 
+
+  
 
   </body>
 </html>

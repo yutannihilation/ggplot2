@@ -61,7 +61,7 @@ usually be added automatically. To override manually, use
 scale_*_date for dates (class Date),
 scale_*_datetime for datetimes (class POSIXct), and
 scale_*_time for times (class hms)." />
-<meta property="og:image" content="https://ggplot2.tidyverse.org/logo.png" />
+<meta property="og:image" content="https://yutannihilation.github.io/ggplot2/logo.png" />
 <meta name="twitter:card" content="summary" />
 
 
@@ -86,9 +86,15 @@ scale_*_time for times (class hms)." />
   gtag('config', 'UA-115082821-1');
 </script>
 
+  
+
+  
+
   </head>
 
   <body data-spy="scroll" data-target="#toc">
+    
+
     <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -105,12 +111,13 @@ scale_*_time for times (class hms)." />
         <a class="navbar-brand" href="../index.html">ggplot2</a>
         <div class="info hidden-xs hidden-sm">
           <span class="partof">part of the <a href="https://tidyverse.org">tidyverse</a></span>
-          <span class="version version-danger" data-toggle="tooltip" data-placement="bottom" title="In-development version">3.3.2.9000</span>
+          <span class="version version-danger" data-toggle="tooltip" data-placement="bottom" title="In-development version">3.3.3.9000</span>
         </div>
       </div>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav navbar-right">
+        
         <li>
   <a href="../reference/index.html">Reference</a>
 </li>
@@ -173,12 +180,12 @@ scale_*_time for times (class hms)." />
     </li>
   </ul>
 </li>
-        <li>
+<li>
   <a href="https://exts.ggplot2.tidyverse.org/gallery/">Extensions</a>
 </li>
 <li>
   <a href="https://github.com/tidyverse/ggplot2/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -224,6 +231,7 @@ usually be added automatically. To override manually, use
   date_minor_breaks <span class='op'>=</span> <span class='fu'><a href='waiver.html'>waiver</a></span><span class='op'>(</span><span class='op'>)</span>,
   limits <span class='op'>=</span> <span class='cn'>NULL</span>,
   expand <span class='op'>=</span> <span class='fu'><a href='waiver.html'>waiver</a></span><span class='op'>(</span><span class='op'>)</span>,
+  oob <span class='op'>=</span> <span class='va'>censor</span>,
   guide <span class='op'>=</span> <span class='fu'><a href='waiver.html'>waiver</a></span><span class='op'>(</span><span class='op'>)</span>,
   position <span class='op'>=</span> <span class='st'>"bottom"</span>,
   sec.axis <span class='op'>=</span> <span class='fu'><a href='waiver.html'>waiver</a></span><span class='op'>(</span><span class='op'>)</span>
@@ -239,6 +247,7 @@ usually be added automatically. To override manually, use
   date_minor_breaks <span class='op'>=</span> <span class='fu'><a href='waiver.html'>waiver</a></span><span class='op'>(</span><span class='op'>)</span>,
   limits <span class='op'>=</span> <span class='cn'>NULL</span>,
   expand <span class='op'>=</span> <span class='fu'><a href='waiver.html'>waiver</a></span><span class='op'>(</span><span class='op'>)</span>,
+  oob <span class='op'>=</span> <span class='va'>censor</span>,
   guide <span class='op'>=</span> <span class='fu'><a href='waiver.html'>waiver</a></span><span class='op'>(</span><span class='op'>)</span>,
   position <span class='op'>=</span> <span class='st'>"left"</span>,
   sec.axis <span class='op'>=</span> <span class='fu'><a href='waiver.html'>waiver</a></span><span class='op'>(</span><span class='op'>)</span>
@@ -255,6 +264,7 @@ usually be added automatically. To override manually, use
   timezone <span class='op'>=</span> <span class='cn'>NULL</span>,
   limits <span class='op'>=</span> <span class='cn'>NULL</span>,
   expand <span class='op'>=</span> <span class='fu'><a href='waiver.html'>waiver</a></span><span class='op'>(</span><span class='op'>)</span>,
+  oob <span class='op'>=</span> <span class='va'>censor</span>,
   guide <span class='op'>=</span> <span class='fu'><a href='waiver.html'>waiver</a></span><span class='op'>(</span><span class='op'>)</span>,
   position <span class='op'>=</span> <span class='st'>"bottom"</span>,
   sec.axis <span class='op'>=</span> <span class='fu'><a href='waiver.html'>waiver</a></span><span class='op'>(</span><span class='op'>)</span>
@@ -271,6 +281,7 @@ usually be added automatically. To override manually, use
   timezone <span class='op'>=</span> <span class='cn'>NULL</span>,
   limits <span class='op'>=</span> <span class='cn'>NULL</span>,
   expand <span class='op'>=</span> <span class='fu'><a href='waiver.html'>waiver</a></span><span class='op'>(</span><span class='op'>)</span>,
+  oob <span class='op'>=</span> <span class='va'>censor</span>,
   guide <span class='op'>=</span> <span class='fu'><a href='waiver.html'>waiver</a></span><span class='op'>(</span><span class='op'>)</span>,
   position <span class='op'>=</span> <span class='st'>"left"</span>,
   sec.axis <span class='op'>=</span> <span class='fu'><a href='waiver.html'>waiver</a></span><span class='op'>(</span><span class='op'>)</span>
@@ -385,6 +396,17 @@ expand the scale by 5% on each side for continuous variables, and by
 0.6 units on each side for discrete variables.</p></td>
     </tr>
     <tr>
+      <th>oob</th>
+      <td><p>One of:</p><ul>
+<li><p>Function that handles limits outside of the scale limits
+(out of bounds).</p></li>
+<li><p>The default (<code><a href='https://scales.r-lib.org//reference/oob.html'>scales::censor()</a></code>) replaces out of
+bounds values with <code>NA</code>.</p></li>
+<li><p><code><a href='https://scales.r-lib.org//reference/oob.html'>scales::squish()</a></code> for squishing out of bounds values into range.</p></li>
+<li><p><code><a href='https://scales.r-lib.org//reference/oob.html'>scales::squish_infinite()</a></code> for squishing infinite values into range.</p></li>
+</ul></td>
+    </tr>
+    <tr>
       <th>guide</th>
       <td><p>A function used to create a guide or its name. See
 <code><a href='guides.html'>guides()</a></code> for more information.</p></td>
@@ -402,17 +424,6 @@ expand the scale by 5% on each side for continuous variables, and by
       <th>timezone</th>
       <td><p>The timezone to use for display on the axes. The default
 (<code>NULL</code>) uses the timezone encoded in the data.</p></td>
-    </tr>
-    <tr>
-      <th>oob</th>
-      <td><p>One of:</p><ul>
-<li><p>Function that handles limits outside of the scale limits
-(out of bounds).</p></li>
-<li><p>The default (<code><a href='https://scales.r-lib.org//reference/oob.html'>scales::censor()</a></code>) replaces out of
-bounds values with <code>NA</code>.</p></li>
-<li><p><code><a href='https://scales.r-lib.org//reference/oob.html'>scales::squish()</a></code> for squishing out of bounds values into range.</p></li>
-<li><p><code><a href='https://scales.r-lib.org//reference/oob.html'>scales::squish_infinite()</a></code> for squishing infinite values into range.</p></li>
-</ul></td>
     </tr>
     <tr>
       <th>na.value</th>
@@ -459,12 +470,12 @@ bounds values with <code>NA</code>.</p></li>
 
       <footer>
       <div class="tidyverse">
-  <p>ggplot2 is a part of the <strong>tidyverse</strong>, an ecosystem of packages designed with common APIs and a shared philosophy. Learn more at <a href="https://tidyverse.org">tidyverse.org</a>.</p>
+  <p><p>Developed by <a href="http://hadley.nz" class="external-link">Hadley Wickham</a>, <a href="https://github.com/wch" class="external-link">Winston Chang</a>, <a href="https://github.com/lionel-" class="external-link">Lionel Henry</a>, <a href="https://data-imaginist.com" class="external-link">Thomas Lin Pedersen</a>, Kohske Takahashi, <a href="https://clauswilke.com" class="external-link">Claus Wilke</a>, <a href="https://karawoo.com" class="external-link">Kara Woo</a>, <a href="https://yutani.rbind.io" class="external-link">Hiroaki Yutani</a>, <a href="https://fishandwhistle.net" class="external-link">Dewey Dunnington</a>, <a href="https://www.rstudio.com" class="external-link"><img src="https://www.tidyverse.org/rstudio-logo.svg" alt="RStudio" height="24"></a>.</p>,<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 1.6.1.9000.</p></p>
 </div>
 
 <div class="author">
   <p>
-    Developed by <a href='http://hadley.nz'>Hadley Wickham</a>, <a href='https://github.com/wch'>Winston Chang</a>, <a href='https://github.com/lionel-'>Lionel Henry</a>, <a href='https://data-imaginist.com'>Thomas Lin Pedersen</a>, Kohske Takahashi, <a href='https://clauswilke.com'>Claus Wilke</a>, <a href='https://karawoo.com'>Kara Woo</a>, <a href='https://yutani.rbind.io'>Hiroaki Yutani</a>, <a href='https://fishandwhistle.net'>Dewey Dunnington</a>, <a href='https://www.rstudio.com'><img src='https://www.tidyverse.org/rstudio-logo.svg' alt='RStudio' height='24' /></a>.
+    Developed by <a href='http://hadley.nz'>Hadley Wickham</a>, <a href='https://github.com/wch'>Winston Chang</a>, <a href='https://github.com/lionel-'>Lionel Henry</a>, <a href='https://data-imaginist.com'>Thomas Lin Pedersen</a>, Kohske Takahashi, <a href='https://clauswilke.com'>Claus Wilke</a>, <a href='https://karawoo.com'>Kara Woo</a>, <a href='https://yutani.rbind.io'>Hiroaki Yutani</a>, <a href='https://fishandwhistle.net'>Dewey Dunnington</a>, <a href='https://www.rstudio.com'><img src="https://www.tidyverse.org/rstudio-logo.svg" alt="RStudio" height="24"></a>.
     Site built by <a href="https://pkgdown.r-lib.org">pkgdown</a>.
   </p>
 </div>
@@ -491,6 +502,8 @@ bounds values with <code>NA</code>.</p></li>
 </script>
 
 
+
+  
 
   </body>
 </html>
