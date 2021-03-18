@@ -2,6 +2,7 @@ on:
   push:
     branches:
       - master
+      - gh-pages-test
   release:
     types: [published]
 
