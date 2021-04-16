@@ -1,13 +1,19 @@
 pandoc: 2.7.3
-pkgdown: 1.6.1.9000
-pkgdown_sha: ae4332d48aedc46be2b532b26661a9bc6b7244fc
+pkgdown: 1.6.1
+pkgdown_sha: ~
 articles:
+  articles/faq-annotation: faq-annotation.html
+  articles/faq-axes: faq-axes.html
+  articles/faq-bars: faq-bars.html
+  articles/faq-customising: faq-customising.html
+  articles/faq-faceting: faq-faceting.html
+  articles/faq-reordering: faq-reordering.html
   extending-ggplot2: extending-ggplot2.html
   ggplot2-in-packages: ggplot2-in-packages.html
   ggplot2-specs: ggplot2-specs.html
   profiling: profiling.html
-last_built: 2021-03-18T00:49Z
+last_built: 2021-04-16T12:16Z
 urls:
-  reference: https://yutannihilation.github.io/ggplot2/reference
-  article: https://yutannihilation.github.io/ggplot2/articles
+  reference: https://ggplot2.tidyverse.org/reference
+  article: https://ggplot2.tidyverse.org/articles
 
