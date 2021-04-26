@@ -159,11 +159,16 @@ guide_train.bins <- function(guide, scale, aesthetic = NULL) {
     }
     all_breaks <- breaks[c(1, seq_along(bin_at) * 2)]
   }
-  key <- new_data_frame(setNames(list(c(scale$map(bin_at), NA)), aes_column_name))
-  key$.label <- scale$get_labels(all_breaks)
-  guide$show.limits <- guide$show.limits %||% scale$show_limits %||% FALSE
 
-  if (guide$reverse) key <- key[nrow(key):1, ]
+  bin_at <- scale$map(bin_at)
+  bin_labels <- scale$get_labels(all_breaks)
+  if (guide$reverse) {
+    bin_at <- rev(bin_at)
+    bin_labels <- rev(bin_labels)
+  }
+  key <- new_data_frame(setNames(list(c(bin_at, NA)), aes_column_name))
+  key$.label <- bin_labels
+  guide$show.limits <- guide$show.limits %||% scale$show_limits %||% FALSE
 
   guide$key <- key
   guide$hash <- with(
