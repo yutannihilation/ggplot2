@@ -2,6 +2,7 @@ on:
   push:
     branches:
       - master
+      - doc/install-BrailleR-pkgdown-site-test
   release:
     types: [published]
 

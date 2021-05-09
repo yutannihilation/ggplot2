@@ -1,5 +1,3 @@
-url: https://ggplot2.tidyverse.org
-
 template:
   package: tidytemplate
   params:
