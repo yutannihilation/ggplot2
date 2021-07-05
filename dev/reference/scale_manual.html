@@ -58,7 +58,7 @@
 <meta property="og:title" content="Create your own discrete scale — scale_manual" />
 <meta property="og:description" content="These functions allow you to specify your own set of mappings from levels in the
 data to aesthetic values." />
-<meta property="og:image" content="/logo.png" />
+<meta property="og:image" content="https://ggplot2.tidyverse.org/logo.png" />
 <meta name="twitter:card" content="summary" />
 
 
@@ -83,9 +83,15 @@ data to aesthetic values." />
   gtag('config', 'UA-115082821-1');
 </script>
 
+  
+
+  
+
   </head>
 
   <body data-spy="scroll" data-target="#toc">
+    
+
     <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -102,7 +108,7 @@ data to aesthetic values." />
         <a class="navbar-brand" href="../index.html">ggplot2</a>
         <div class="info hidden-xs hidden-sm">
           <span class="partof">part of the <a href="https://tidyverse.org">tidyverse</a></span>
-          <span class="version version-danger" data-toggle="tooltip" data-placement="bottom" title="In-development version">3.3.3.9000</span>
+          <span class="version version-danger" data-toggle="tooltip" data-placement="bottom" title="In-development version">3.3.5.9000</span>
         </div>
       </div>
     </div>
@@ -231,19 +237,31 @@ data to aesthetic values." />
 data to aesthetic values.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>scale_colour_manual</span><span class='op'>(</span><span class='va'>...</span>, <span class='va'>values</span>, aesthetics <span class='op'>=</span> <span class='st'>"colour"</span>, breaks <span class='op'>=</span> <span class='fu'><a href='waiver.html'>waiver</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span>
+    <div class="ref-usage sourceCode"><pre class='sourceCode r'><code><span class='fu'>scale_colour_manual</span><span class='op'>(</span>
+  <span class='va'>...</span>,
+  <span class='va'>values</span>,
+  aesthetics <span class='op'>=</span> <span class='st'>"colour"</span>,
+  breaks <span class='op'>=</span> <span class='fu'><a href='waiver.html'>waiver</a></span><span class='op'>(</span><span class='op'>)</span>,
+  na.value <span class='op'>=</span> <span class='st'>"grey50"</span>
+<span class='op'>)</span>
 
-<span class='fu'>scale_fill_manual</span><span class='op'>(</span><span class='va'>...</span>, <span class='va'>values</span>, aesthetics <span class='op'>=</span> <span class='st'>"fill"</span>, breaks <span class='op'>=</span> <span class='fu'><a href='waiver.html'>waiver</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span>
+<span class='fu'>scale_fill_manual</span><span class='op'>(</span>
+  <span class='va'>...</span>,
+  <span class='va'>values</span>,
+  aesthetics <span class='op'>=</span> <span class='st'>"fill"</span>,
+  breaks <span class='op'>=</span> <span class='fu'><a href='waiver.html'>waiver</a></span><span class='op'>(</span><span class='op'>)</span>,
+  na.value <span class='op'>=</span> <span class='st'>"grey50"</span>
+<span class='op'>)</span>
 
-<span class='fu'>scale_size_manual</span><span class='op'>(</span><span class='va'>...</span>, <span class='va'>values</span>, breaks <span class='op'>=</span> <span class='fu'><a href='waiver.html'>waiver</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span>
+<span class='fu'>scale_size_manual</span><span class='op'>(</span><span class='va'>...</span>, <span class='va'>values</span>, breaks <span class='op'>=</span> <span class='fu'><a href='waiver.html'>waiver</a></span><span class='op'>(</span><span class='op'>)</span>, na.value <span class='op'>=</span> <span class='cn'>NA</span><span class='op'>)</span>
 
-<span class='fu'>scale_shape_manual</span><span class='op'>(</span><span class='va'>...</span>, <span class='va'>values</span>, breaks <span class='op'>=</span> <span class='fu'><a href='waiver.html'>waiver</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span>
+<span class='fu'>scale_shape_manual</span><span class='op'>(</span><span class='va'>...</span>, <span class='va'>values</span>, breaks <span class='op'>=</span> <span class='fu'><a href='waiver.html'>waiver</a></span><span class='op'>(</span><span class='op'>)</span>, na.value <span class='op'>=</span> <span class='cn'>NA</span><span class='op'>)</span>
 
-<span class='fu'>scale_linetype_manual</span><span class='op'>(</span><span class='va'>...</span>, <span class='va'>values</span>, breaks <span class='op'>=</span> <span class='fu'><a href='waiver.html'>waiver</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span>
+<span class='fu'>scale_linetype_manual</span><span class='op'>(</span><span class='va'>...</span>, <span class='va'>values</span>, breaks <span class='op'>=</span> <span class='fu'><a href='waiver.html'>waiver</a></span><span class='op'>(</span><span class='op'>)</span>, na.value <span class='op'>=</span> <span class='st'>"blank"</span><span class='op'>)</span>
 
-<span class='fu'>scale_alpha_manual</span><span class='op'>(</span><span class='va'>...</span>, <span class='va'>values</span>, breaks <span class='op'>=</span> <span class='fu'><a href='waiver.html'>waiver</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span>
+<span class='fu'>scale_alpha_manual</span><span class='op'>(</span><span class='va'>...</span>, <span class='va'>values</span>, breaks <span class='op'>=</span> <span class='fu'><a href='waiver.html'>waiver</a></span><span class='op'>(</span><span class='op'>)</span>, na.value <span class='op'>=</span> <span class='cn'>NA</span><span class='op'>)</span>
 
-<span class='fu'>scale_discrete_manual</span><span class='op'>(</span><span class='va'>aesthetics</span>, <span class='va'>...</span>, <span class='va'>values</span>, breaks <span class='op'>=</span> <span class='fu'><a href='waiver.html'>waiver</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span></pre>
+<span class='fu'>scale_discrete_manual</span><span class='op'>(</span><span class='va'>aesthetics</span>, <span class='va'>...</span>, <span class='va'>values</span>, breaks <span class='op'>=</span> <span class='fu'><a href='waiver.html'>waiver</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span></code></pre></div>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -269,9 +287,6 @@ The default, <code>TRUE</code>, uses the levels that appear in the data;
     <dt><code>na.translate</code></dt><dd><p>Unlike continuous scales, discrete scales can easily show
 missing values, and do so by default. If you want to remove missing values
 from a discrete scale, specify <code>na.translate = FALSE</code>.</p></dd>
-    <dt><code>na.value</code></dt><dd><p>If <code>na.translate = TRUE</code>, what aesthetic value should the
-missing values be displayed as? Does not apply to position scales
-where <code>NA</code> is always placed at the far right.</p></dd>
     <dt><code>scale_name</code></dt><dd><p>The name of the scale that should be used for error messages
 associated with this scale.</p></dd>
     <dt><code>name</code></dt><dd><p>The name of the scale. Used as the axis or legend title. If
@@ -319,6 +334,10 @@ same time, via <code>aesthetics = c("colour", "fill")</code>.</p></td>
 as output</p></li>
 </ul></td>
     </tr>
+    <tr>
+      <th>na.value</th>
+      <td><p>The aesthetic value to use for missing (<code>NA</code>) values</p></td>
+    </tr>
     </table>
 
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
@@ -350,38 +369,45 @@ see the <a href='https://arxiv.org/abs/1903.06490'>paper on the colorspace packa
 and references therein.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='va'>p</span> <span class='op'>&lt;-</span> <span class='fu'><a href='ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='va'>mtcars</span>, <span class='fu'><a href='aes.html'>aes</a></span><span class='op'>(</span><span class='va'>mpg</span>, <span class='va'>wt</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'><a href='geom_point.html'>geom_point</a></span><span class='op'>(</span><span class='fu'><a href='aes.html'>aes</a></span><span class='op'>(</span>colour <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/factor.html'>factor</a></span><span class='op'>(</span><span class='va'>cyl</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span>
-<span class='va'>p</span> <span class='op'>+</span> <span class='fu'>scale_colour_manual</span><span class='op'>(</span>values <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"red"</span>, <span class='st'>"blue"</span>, <span class='st'>"green"</span><span class='op'>)</span><span class='op'>)</span>
-</div><div class='img'><img src='scale_manual-1.png' alt='' width='700' height='433' /></div><div class='input'>
-<span class='co'># It's recommended to use a named vector</span>
-<span class='va'>cols</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"8"</span> <span class='op'>=</span> <span class='st'>"red"</span>, <span class='st'>"4"</span> <span class='op'>=</span> <span class='st'>"blue"</span>, <span class='st'>"6"</span> <span class='op'>=</span> <span class='st'>"darkgreen"</span>, <span class='st'>"10"</span> <span class='op'>=</span> <span class='st'>"orange"</span><span class='op'>)</span>
-<span class='va'>p</span> <span class='op'>+</span> <span class='fu'>scale_colour_manual</span><span class='op'>(</span>values <span class='op'>=</span> <span class='va'>cols</span><span class='op'>)</span>
-</div><div class='img'><img src='scale_manual-2.png' alt='' width='700' height='433' /></div><div class='input'>
-<span class='co'># You can set color and fill aesthetics at the same time</span>
-<span class='fu'><a href='ggplot.html'>ggplot</a></span><span class='op'>(</span>
-  <span class='va'>mtcars</span>,
-  <span class='fu'><a href='aes.html'>aes</a></span><span class='op'>(</span><span class='va'>mpg</span>, <span class='va'>wt</span>, colour <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/factor.html'>factor</a></span><span class='op'>(</span><span class='va'>cyl</span><span class='op'>)</span>, fill <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/factor.html'>factor</a></span><span class='op'>(</span><span class='va'>cyl</span><span class='op'>)</span><span class='op'>)</span>
-<span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'><a href='geom_point.html'>geom_point</a></span><span class='op'>(</span>shape <span class='op'>=</span> <span class='fl'>21</span>, alpha <span class='op'>=</span> <span class='fl'>0.5</span>, size <span class='op'>=</span> <span class='fl'>2</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'>scale_colour_manual</span><span class='op'>(</span>
-    values <span class='op'>=</span> <span class='va'>cols</span>,
-    aesthetics <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"colour"</span>, <span class='st'>"fill"</span><span class='op'>)</span>
-  <span class='op'>)</span>
-</div><div class='img'><img src='scale_manual-3.png' alt='' width='700' height='433' /></div><div class='input'>
-<span class='co'># As with other scales you can use breaks to control the appearance</span>
-<span class='co'># of the legend.</span>
-<span class='va'>p</span> <span class='op'>+</span> <span class='fu'>scale_colour_manual</span><span class='op'>(</span>values <span class='op'>=</span> <span class='va'>cols</span><span class='op'>)</span>
-</div><div class='img'><img src='scale_manual-4.png' alt='' width='700' height='433' /></div><div class='input'><span class='va'>p</span> <span class='op'>+</span> <span class='fu'>scale_colour_manual</span><span class='op'>(</span>
-  values <span class='op'>=</span> <span class='va'>cols</span>,
-  breaks <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"4"</span>, <span class='st'>"6"</span>, <span class='st'>"8"</span><span class='op'>)</span>,
-  labels <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"four"</span>, <span class='st'>"six"</span>, <span class='st'>"eight"</span><span class='op'>)</span>
-<span class='op'>)</span>
-</div><div class='img'><img src='scale_manual-5.png' alt='' width='700' height='433' /></div><div class='input'>
-<span class='co'># And limits to control the possible values of the scale</span>
-<span class='va'>p</span> <span class='op'>+</span> <span class='fu'>scale_colour_manual</span><span class='op'>(</span>values <span class='op'>=</span> <span class='va'>cols</span>, limits <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"4"</span>, <span class='st'>"8"</span><span class='op'>)</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span class='warning'>Warning: Removed 7 rows containing missing values (geom_point).</span></div><div class='img'><img src='scale_manual-6.png' alt='' width='700' height='433' /></div><div class='input'><span class='va'>p</span> <span class='op'>+</span> <span class='fu'>scale_colour_manual</span><span class='op'>(</span>values <span class='op'>=</span> <span class='va'>cols</span>, limits <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"4"</span>, <span class='st'>"6"</span>, <span class='st'>"8"</span>, <span class='st'>"10"</span><span class='op'>)</span><span class='op'>)</span>
-</div><div class='img'><img src='scale_manual-7.png' alt='' width='700' height='433' /></div></pre>
+    <div class="ref-examples sourceCode"><pre class='sourceCode r'><code><span class='r-in'><span class='va'>p</span> <span class='op'>&lt;-</span> <span class='fu'><a href='ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='va'>mtcars</span>, <span class='fu'><a href='aes.html'>aes</a></span><span class='op'>(</span><span class='va'>mpg</span>, <span class='va'>wt</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span class='r-in'>  <span class='fu'><a href='geom_point.html'>geom_point</a></span><span class='op'>(</span><span class='fu'><a href='aes.html'>aes</a></span><span class='op'>(</span>colour <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/factor.html'>factor</a></span><span class='op'>(</span><span class='va'>cyl</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span></span>
+<span class='r-in'><span class='va'>p</span> <span class='op'>+</span> <span class='fu'>scale_colour_manual</span><span class='op'>(</span>values <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"red"</span>, <span class='st'>"blue"</span>, <span class='st'>"green"</span><span class='op'>)</span><span class='op'>)</span></span>
+<span class='r-plt'><img src='scale_manual-1.png' alt='' width='700' height='433' /></span>
+<span class='r-in'></span>
+<span class='r-in'><span class='co'># It's recommended to use a named vector</span></span>
+<span class='r-in'><span class='va'>cols</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"8"</span> <span class='op'>=</span> <span class='st'>"red"</span>, <span class='st'>"4"</span> <span class='op'>=</span> <span class='st'>"blue"</span>, <span class='st'>"6"</span> <span class='op'>=</span> <span class='st'>"darkgreen"</span>, <span class='st'>"10"</span> <span class='op'>=</span> <span class='st'>"orange"</span><span class='op'>)</span></span>
+<span class='r-in'><span class='va'>p</span> <span class='op'>+</span> <span class='fu'>scale_colour_manual</span><span class='op'>(</span>values <span class='op'>=</span> <span class='va'>cols</span><span class='op'>)</span></span>
+<span class='r-plt'><img src='scale_manual-2.png' alt='' width='700' height='433' /></span>
+<span class='r-in'></span>
+<span class='r-in'><span class='co'># You can set color and fill aesthetics at the same time</span></span>
+<span class='r-in'><span class='fu'><a href='ggplot.html'>ggplot</a></span><span class='op'>(</span></span>
+<span class='r-in'>  <span class='va'>mtcars</span>,</span>
+<span class='r-in'>  <span class='fu'><a href='aes.html'>aes</a></span><span class='op'>(</span><span class='va'>mpg</span>, <span class='va'>wt</span>, colour <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/factor.html'>factor</a></span><span class='op'>(</span><span class='va'>cyl</span><span class='op'>)</span>, fill <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/factor.html'>factor</a></span><span class='op'>(</span><span class='va'>cyl</span><span class='op'>)</span><span class='op'>)</span></span>
+<span class='r-in'><span class='op'>)</span> <span class='op'>+</span></span>
+<span class='r-in'>  <span class='fu'><a href='geom_point.html'>geom_point</a></span><span class='op'>(</span>shape <span class='op'>=</span> <span class='fl'>21</span>, alpha <span class='op'>=</span> <span class='fl'>0.5</span>, size <span class='op'>=</span> <span class='fl'>2</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span class='r-in'>  <span class='fu'>scale_colour_manual</span><span class='op'>(</span></span>
+<span class='r-in'>    values <span class='op'>=</span> <span class='va'>cols</span>,</span>
+<span class='r-in'>    aesthetics <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"colour"</span>, <span class='st'>"fill"</span><span class='op'>)</span></span>
+<span class='r-in'>  <span class='op'>)</span></span>
+<span class='r-plt'><img src='scale_manual-3.png' alt='' width='700' height='433' /></span>
+<span class='r-in'></span>
+<span class='r-in'><span class='co'># As with other scales you can use breaks to control the appearance</span></span>
+<span class='r-in'><span class='co'># of the legend.</span></span>
+<span class='r-in'><span class='va'>p</span> <span class='op'>+</span> <span class='fu'>scale_colour_manual</span><span class='op'>(</span>values <span class='op'>=</span> <span class='va'>cols</span><span class='op'>)</span></span>
+<span class='r-plt'><img src='scale_manual-4.png' alt='' width='700' height='433' /></span>
+<span class='r-in'><span class='va'>p</span> <span class='op'>+</span> <span class='fu'>scale_colour_manual</span><span class='op'>(</span></span>
+<span class='r-in'>  values <span class='op'>=</span> <span class='va'>cols</span>,</span>
+<span class='r-in'>  breaks <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"4"</span>, <span class='st'>"6"</span>, <span class='st'>"8"</span><span class='op'>)</span>,</span>
+<span class='r-in'>  labels <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"four"</span>, <span class='st'>"six"</span>, <span class='st'>"eight"</span><span class='op'>)</span></span>
+<span class='r-in'><span class='op'>)</span></span>
+<span class='r-plt'><img src='scale_manual-5.png' alt='' width='700' height='433' /></span>
+<span class='r-in'></span>
+<span class='r-in'><span class='co'># And limits to control the possible values of the scale</span></span>
+<span class='r-in'><span class='va'>p</span> <span class='op'>+</span> <span class='fu'>scale_colour_manual</span><span class='op'>(</span>values <span class='op'>=</span> <span class='va'>cols</span>, limits <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"4"</span>, <span class='st'>"8"</span><span class='op'>)</span><span class='op'>)</span></span>
+<span class='r-plt'><img src='scale_manual-6.png' alt='' width='700' height='433' /></span>
+<span class='r-in'><span class='va'>p</span> <span class='op'>+</span> <span class='fu'>scale_colour_manual</span><span class='op'>(</span>values <span class='op'>=</span> <span class='va'>cols</span>, limits <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"4"</span>, <span class='st'>"6"</span>, <span class='st'>"8"</span>, <span class='st'>"10"</span><span class='op'>)</span><span class='op'>)</span></span>
+<span class='r-plt'><img src='scale_manual-7.png' alt='' width='700' height='433' /></span>
+</code></pre></div>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -398,7 +424,7 @@ and references therein.</p>
 
 <div class="author">
   <p>
-    Developed by <a href='http://hadley.nz'>Hadley Wickham</a>, <a href='https://github.com/wch'>Winston Chang</a>, <a href='https://github.com/lionel-'>Lionel Henry</a>, <a href='https://data-imaginist.com'>Thomas Lin Pedersen</a>, Kohske Takahashi, <a href='https://clauswilke.com'>Claus Wilke</a>, <a href='https://karawoo.com'>Kara Woo</a>, <a href='https://yutani.rbind.io'>Hiroaki Yutani</a>, <a href='https://fishandwhistle.net'>Dewey Dunnington</a>, <a href='https://www.rstudio.com'><img src='https://www.tidyverse.org/rstudio-logo.svg' alt='RStudio' height='24' /></a>.
+    Developed by <a href='http://hadley.nz'>Hadley Wickham</a>, <a href='https://github.com/wch'>Winston Chang</a>, <a href='https://github.com/lionel-'>Lionel Henry</a>, <a href='https://data-imaginist.com'>Thomas Lin Pedersen</a>, Kohske Takahashi, <a href='https://clauswilke.com'>Claus Wilke</a>, <a href='https://karawoo.com'>Kara Woo</a>, <a href='https://yutani.rbind.io'>Hiroaki Yutani</a>, <a href='https://fishandwhistle.net'>Dewey Dunnington</a>, <a href='https://www.rstudio.com'><img src="https://www.tidyverse.org/rstudio-logo.svg" alt="RStudio" height="24"></a>.
     Site built by <a href="https://pkgdown.r-lib.org">pkgdown</a>.
   </p>
 </div>
@@ -425,6 +451,8 @@ and references therein.</p>
 </script>
 
 
+
+  
 
   </body>
 </html>

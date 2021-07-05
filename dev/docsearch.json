@@ -2,21 +2,21 @@
   "index_name": "tidyverse_ggplot2",
   "start_urls": [
     {
-      "url": "/index.html",
+      "url": "https://ggplot2.tidyverse.org/index.html",
       "selectors_key": "homepage",
       "tags": [
         "homepage"
       ]
     },
     {
-      "url": "/reference",
+      "url": "https://ggplot2.tidyverse.org/reference",
       "selectors_key": "reference",
       "tags": [
         "reference"
       ]
     },
     {
-      "url": "/articles",
+      "url": "https://ggplot2.tidyverse.org/articles",
       "selectors_key": "articles",
       "tags": [
         "articles"
@@ -30,7 +30,7 @@
     "/articles/index.html"
   ],
   "sitemap_urls": [
-    "/sitemap.xml"
+    "https://ggplot2.tidyverse.org/sitemap.xml"
   ],
   "selectors": {
     "homepage": {
