@@ -241,7 +241,17 @@ Layout <- ggproto("Layout", NULL,
     } %|W|% labels$sec.x
     if (is.derived(secondary)) secondary <- primary
     secondary <- self$panel_scales_x[[1]]$make_sec_title(secondary)
-    list(primary = primary, secondary = secondary)[self$panel_scales_x[[1]]$axis_order()]
+    ord <- c("primary", "secondary")
+    scale_pos_reversed <- self$panel_scales_x[[1]]$position %in% c("right", "bottom")
+    if (!is.null(self$panel_params[[1]]$guides) && length(self$panel_params[[1]]$guides) >= 1) {
+      guides_pos_reversed <- self$panel_params[[1]]$guides[[1]]$position %in% c("right", "bottom")
+    } else {
+      guides_pos_reversed <- TRUE
+    }
+    if (scale_pos_reversed && guides_pos_reversed) {
+      ord <- rev(ord)
+    }
+    list(primary = primary, secondary = secondary)[ord]
   },
 
   ylabel = function(self, labels) {
@@ -254,7 +264,17 @@ Layout <- ggproto("Layout", NULL,
     } %|W|% labels$sec.y
     if (is.derived(secondary)) secondary <- primary
     secondary <- self$panel_scales_y[[1]]$make_sec_title(secondary)
-    list(primary = primary, secondary = secondary)[self$panel_scales_y[[1]]$axis_order()]
+    ord <- c("primary", "secondary")
+    scale_pos_reversed <- self$panel_scales_y[[1]]$position %in% c("right", "bottom")
+    if (!is.null(self$panel_params[[1]]$guides) && length(self$panel_params[[1]]$guides) >= 2) {
+      guides_pos_reversed <- self$panel_params[[1]]$guides[[2]]$position %in% c("right", "bottom")
+    } else {
+      guides_pos_reversed <- FALSE
+    }
+    if (scale_pos_reversed || guides_pos_reversed) {
+      ord <- rev(ord)
+    }
+    list(primary = primary, secondary = secondary)[ord]
   },
 
   render_labels = function(self, labels, theme) {
