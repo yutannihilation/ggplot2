@@ -8,6 +8,11 @@
 * `position_dodge(preserve = "single")` now handles multi-row geoms better,
   such as `geom_violin()` (@teunbrand based on @clauswilke's work, #2801).
 * `position_jitterdodge()` now dodges by `group` (@teunbrand, #3656)
+* All position scales now use the same definition of `x` and `y` aesthetics.
+  This lets uncommon aesthetics like `xintercept` expand scales as usual.
+  (#3342, #4966, @teunbrand)
+* Bare numeric values provided to Date or Datetime scales get inversely 
+  transformed (cast to Date/POSIXct) with a warning (@teunbrand).
 * The `arrow.fill` parameter is now applied to more line-based functions: 
   `geom_path()`, `geom_line()`, `geom_step()` `geom_function()`, line 
    geometries in `geom_sf()` and `element_line()`.
